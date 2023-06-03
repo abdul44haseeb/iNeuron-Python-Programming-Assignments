@@ -1,0 +1,254 @@
+1.What are the two values of the Boolean data type? How do you write them?
+The two values of the Boolean data type are True and False. They represent the two possible states of logical truth in Python.
+
+To write them, you simply use the keywords True and False (without quotation marks) as shown below:
+
+x = True
+y = False
+Here, x is assigned the Boolean value True, and y is assigned the Boolean value False. These values are used to perform logical operations, control program flow, and make decisions in Python.
+
+
+2. What are the three different types of Boolean operators?
+
+The three different types of Boolean operators are:
+
+and operator
+or operator
+not operator
+
+3. Make a list of each Boolean operator&#39;s truth tables (i.e. every possible combination of Boolean
+values for the operator and what it evaluate ).
+
+and operator truth table:
+
+Operand 1	        Operand 2	     Result
+True	             True	          True
+True	             False	        False
+False	             True	          False
+False	             False	        False
+
+
+or operator truth table:
+
+Operand 1	     Operand 2	   Result
+True	          True	        True
+True	          False	        True
+False	          True	        True
+False	          False	        False
+
+not operator truth table:
+
+Operand	      Result
+True	        False
+False	        True
+
+
+4. What are the values of the following expressions?
+
+(5 > 4) and (3 == 5)
+not (5 > 4)
+((5 > 4) or (3 == 5))
+not ((5 > 4) or (3 == 5))
+(True and True) and (True == False)
+(not False) or (not True)
+
+Answer:
+
+(5 > 4) and (3 == 5) evaluates to False.
+not (5 > 4) evaluates to False.
+((5 > 4) or (3 == 5)) evaluates to True.
+not ((5 > 4) or (3 == 5)) evaluates to False.
+(True and True) and (True == False) evaluates to False.
+(not False) or (not True) evaluates to True.
+
+5. What are the six comparison operators?
+
+The six comparison operators in Python are:
+
+Equal to (==): Checks if two values are equal and returns True if they are, and False otherwise.
+
+Not equal to (!=): Checks if two values are not equal and returns True if they are not, and False otherwise.
+
+Greater than (>): Checks if the left operand is greater than the right operand and returns True if it is, and False otherwise.
+
+Less than (<): Checks if the left operand is less than the right operand and returns True if it is, and False otherwise.
+
+Greater than or equal to (>=): Checks if the left operand is greater than or equal to the right operand and returns True if it is, and False otherwise.
+
+Less than or equal to (<=): Checks if the left operand is less than or equal to the right operand and returns True if it is, and False otherwise.
+
+
+6. How do you tell the difference between the equal to and assignment operators? Describe a
+condition and when you would use one.
+
+Answer:
+
+The equal to (==) operator and the assignment (=) operator serve different purposes in Python.
+
+Equal to (==) operator:
+
+The equal to operator (==) is a comparison operator used to check if two values are equal.
+It returns True if the values on both sides of the operator are equal, and False otherwise.
+For example:
+
+x = 5
+y = 10
+if x == y:
+    print("x is equal to y")
+
+Assignment (=) operator:
+
+The assignment operator (=) is used to assign a value to a variable.
+It assigns the value on the right-hand side of the operator to the variable on the left-hand side.
+For example:
+
+x = 5
+y = x + 3
+
+
+To differentiate between the equal to (==) operator and the assignment (=) operator, you need to consider their usage and context in the code:
+
+The equal to (==) operator is used for comparison purposes, to check if two values are equal.
+The assignment (=) operator is used to assign a value to a variable.
+Here's an example to demonstrate the difference:
+
+x = 5  # Here, the assignment operator (=) is used to assign the value 5 to the variable x.
+if x == 5:  # Here, the equal to operator (==) is used to compare the value of x with 5.
+    print("x is equal to 5")
+
+In the example, the assignment operator is used to assign the value 5 to the variable x, and the equal to operator is used to compare the value of x with 5 in the if condition.
+
+In summary, you use the equal to (==) operator to compare values, and you use the assignment (=) operator to assign values to variables.
+
+
+7. Identify the three blocks in this code:
+spam = 0
+if spam == 10:
+print('eggs')
+if spam > 5:
+print('bacon';)
+else:
+print('ham')
+print('spam')
+print('spam')
+
+To identify the blocks in the given code, we can look for the indentation levels. In Python, blocks of code are defined by indentation. Here's the code with the blocks identified:
+
+spam = 0
+
+# Block 1
+if spam == 10:
+    print('eggs')
+
+# Block 2
+if spam > 5:
+    print('bacon')
+else:
+    # Block 3
+    print('ham')
+
+print('spam')
+print('spam')
+
+
+8. Write code that prints Hello if 1 is stored in spam, prints Howdy if 2 is stored in spam, and prints
+Greetings! if anything else is stored in spam.
+
+spam =  # Assign the value to spam
+
+if spam == 1:
+    print("Hello")
+elif spam == 2:
+    print("Howdy")
+else:
+    print("Greetings!")
+
+
+9.If your programme is stuck in an endless loop, what keys you’ll press?
+
+If a program is stuck in an endless loop and you want to interrupt its execution, you can press the following key combination:
+
+On most systems: Ctrl + C (hold down the Control key and press C).
+On some systems: Ctrl + Break (hold down the Control key and press Break or Pause).
+Pressing these key combinations sends an interrupt signal to the running program, causing it to terminate and return control to the command prompt or IDE.
+
+
+10. How can you tell the difference between break and continue?
+
+break statement:
+
+The break statement is used to exit the current loop prematurely.
+When encountered, break immediately terminates the loop and the program continues with the next statement after the loop.
+It is typically used when a specific condition is met, and you want to exit the loop early.
+Example:
+
+for i in range(1, 10):
+    if i == 5:
+        break
+    print(i)
+In this example, when i becomes 5, the break statement is encountered, and the loop is terminated. The program will print numbers 1 to 4 and then exit the loop.
+continue statement:
+
+The continue statement is used to skip the rest of the code block inside the loop for the current iteration.
+When encountered, continue immediately goes back to the beginning of the loop and starts the next iteration, skipping the remaining code within the loop block for the current iteration.
+It is typically used when you want to skip certain iterations based on a specific condition, without terminating the loop entirely.
+Example:
+
+for i in range(1, 6):
+    if i == 3:
+        continue
+    print(i)
+In this example, when i becomes 3, the continue statement is encountered. It skips the print(i) statement for that iteration and proceeds to the next iteration. The program will print numbers 1, 2, 4, and 5.
+
+
+11. In a for loop, what is the difference between range(10), range(0, 10), and range(0, 10, 1)?
+
+
+range(10):
+
+This expression generates a sequence of numbers starting from 0 (inclusive) and ending at 10 (exclusive) with a step size of 1.
+The start value is not explicitly mentioned, so it assumes the default start value of 0.
+The step size is also not explicitly mentioned, so it assumes the default step size of 1.
+Example:
+
+for i in range(10):
+    print(i)
+
+In this example, the loop will iterate 10 times, printing the numbers from 0 to 9.
+range(0, 10):
+
+This expression generates a sequence of numbers starting from 0 (inclusive) and ending at 10 (exclusive) with a step size of 1.
+The start value is explicitly mentioned as 0, indicating that the sequence starts from 0.
+The step size is not explicitly mentioned, so it assumes the default step size of 1.
+Example:
+for i in range(0, 10):
+    print(i)
+This will have the same result as the previous example. The loop will iterate 10 times, printing the numbers from 0 to 9.
+range(0, 10, 1):
+
+This expression generates a sequence of numbers starting from 0 (inclusive) and ending at 10 (exclusive) with a step size of 1.
+The start value is explicitly mentioned as 0.
+The end value is explicitly mentioned as 10, indicating that the sequence goes up to, but does not include, 10.
+The step size is explicitly mentioned as 1.
+Example:
+
+for i in range(0, 10, 1):
+    print(i)
+    
+This will also have the same result as the previous examples. The loop will iterate 10 times, printing the numbers from 0 to 9.
+
+12. Write a short program that prints the numbers 1 to 10 using a for loop. Then write an equivalent
+program that prints the numbers 1 to 10 using a while loop.
+
+# Using a for loop
+for i in range(1, 11):
+    print(i)
+
+
+13. If you had a function named bacon() inside a module named spam, how would you call it after
+importing spam?
+
+import spam
+
+spam.bacon()  # Calling the bacon() function from the spam module
+In this example, the spam module is imported using the import statement. To call the bacon() function, you use the module name spam followed by a dot (.) and then the function name bacon(). This syntax allows you to access and call functions within imported modules.
