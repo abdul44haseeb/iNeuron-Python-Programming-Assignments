@@ -1,0 +1,174 @@
+<!--
+
+1. In the below elements which of them are values or an expression? eg:- values can be
+integer or string and expressions will be mathematical operators.
+
+*
+'hello'
+-87.8
+-
+/
++
+6
+
+
+Answer : 
+
+'hello' (string)
+-87.8 (floating-point number)
+6 (integer)
+
+- (subtraction Operator)
+/ (Divison Operator)
++ (Addition Operator)
+
+-->
+
+<!--
+
+2. What is the difference between string and variable?
+
+Answer:
+
+String: A string is a data type that represents a sequence of characters. It is used to store and manipulate textual data. A string is typically enclosed within single quotes ('') or double quotes (""). For example, 'Hello, World!' and "iNeuron" are both strings. Strings can be assigned to variables for storage and manipulation.
+
+Variable: A variable is a named container that holds a value. It is used to store and reference data during program execution. A variable can hold different types of data, including strings, numbers, and objects. It allows you to assign values to a named identifier, which can be used throughout the program. Variables are essential for storing and manipulating data dynamically. For example, name = "Abdul" assigns the string "Abdul" to the variable name.
+
+-->
+
+<!--
+3. Describe three different data types.
+
+Answer:
+
+Integer (int): The integer data type represents whole numbers without any fractional or decimal part. Integers can be positive, negative, or zero. They are used for tasks such as counting, indexing, and performing arithmetic operations.
+
+Floating-Point Number (float): The floating-point number data type represents real numbers with a fractional part. Floats can have decimal places and are used for calculations that require precision, such as scientific computations or financial calculations.
+
+String (str): The string data type represents a sequence of characters. Strings are used to store and manipulate textual data. They can be enclosed within single quotes (''), double quotes ("") or triple quotes ("""). Strings are versatile and widely used for representing names, sentences, and other textual information.
+
+Boolean: A boolean is a data type that represents one of two possible values: True or False. Booleans are used to express logical conditions and control the flow of a program. They are particularly useful in conditional statements and boolean operations. For example, a boolean variable can be used to check if a condition is true or false, such as whether a number is greater than another. Booleans help in decision-making within programs.
+
+-->
+
+<!--
+
+4. What is an expression made up of? What do all expressions do?
+
+Answer:
+
+An expression in programming is made up of one or more operands combined with operators to produce a result. It can consist of variables, constants, function calls, and operators. Expressions are used to perform computations, make comparisons, and evaluate conditions. Here are the components typically found in an expression:
+
+Operands: These are the values or variables involved in the expression. For example, in the expression x + 5, x and 5 are operands.
+
+Operators: Operators perform specific operations on the operands. They define how the operands should be combined or manipulated. Common types of operators include arithmetic operators (+, -, *, /), comparison operators (>, <, ==), logical operators (and, or, not), and assignment operators (=, +=, -=). Operators dictate the behavior and outcome of an expression.
+
+Parentheses: Parentheses can be used to group parts of an expression and specify the order of operations. They control the evaluation order and can override the default precedence rules. For example, (x + 5) * 2 ensures that the addition is performed before the multiplication.
+
+The purpose of an expression is to produce a value or result. Expressions can be used to perform calculations, make decisions, assign values, or determine program flow. They provide a means to manipulate and transform data within a program. For example, in a simple expression like 2 + 3, the expression evaluates to 5, which is the result.
+
+
+3. Describe three different data types.
+
+Answer:
+
+Integer (int): The integer data type represents whole numbers without any fractional or decimal part. Integers can be positive, negative, or zero. They are used for tasks such as counting, indexing, and performing arithmetic operations.
+
+Floating-Point Number (float): The floating-point number data type represents real numbers with a fractional part. Floats can have decimal places and are used for calculations that require precision, such as scientific computations or financial calculations.
+
+String (str): The string data type represents a sequence of characters. Strings are used to store and manipulate textual data. They can be enclosed within single quotes (''), double quotes ("") or triple quotes ("""). Strings are versatile and widely used for representing names, sentences, and other textual information.
+
+Boolean: A boolean is a data type that represents one of two possible values: True or False. Booleans are used to express logical conditions and control the flow of a program. They are particularly useful in conditional statements and boolean operations. For example, a boolean variable can be used to check if a condition is true or false, such as whether a number is greater than another. Booleans help in decision-making within programs.
+
+
+
+5. These assignment statements, like spam = 10. What is the difference between an
+expression and a statement?
+
+Answer:
+
+Expression: An expression is a combination of values, variables, operators, and function calls that can be evaluated to produce a value. Expressions can be as simple as a single value or complex with multiple operators and operands. They are used to perform calculations, compare values, or generate new values. Expressions always have a value and can be nested within larger expressions. For example, 2 + 3, x * y, and len(my_list) are all expressions.
+
+Statement: A statement, on the other hand, is a complete instruction or action that performs a specific task. It is a unit of code that carries out an operation or controls the flow of the program. Statements can include expressions but are not required to. They perform actions such as variable assignments, function declarations, looping, conditional branching, or input/output operations. For example, spam = 10, if-else statements, and for loops are all examples of statements.
+
+The key difference between expressions and statements is that expressions always have a value, whereas statements do not necessarily have a value. Statements are focused on performing actions and controlling program flow, while expressions are focused on producing values.
+
+In the assignment statement spam = 10, spam is a variable, = is the assignment operator, and 10 is an expression that evaluates to the value 10. The statement assigns the value 10 to the variable spam, modifying its state.
+
+
+6. After running the following code, what does the variable bacon contain?
+bacon = 22
+bacon = bacon + 1
+
+Answer:
+23
+
+```
+bacon = 22
+bacon = bacon + 1
+bacon
+```
+23
+
+7. What should the values of the following two terms be?
+
+"spam" + "spamspam"
+'spam' * 3
+
+Answer
+
+```
+"spam" + "spamspam"
+```
+    'spamspamspam'
+
+```
+'spam' * 3
+```
+    'spamspamspam'
+
+
+8. Why is eggs a valid variable name while 100 is invalid?
+
+Variable names have certain rules and conventions that determine their validity. Here's why eggs is a valid variable name while 100 is invalid:
+
+Valid variable names:
+
+Must start with a letter (a-z, A-Z) or an underscore (_).
+Can contain letters, digits (0-9), and underscores.
+Cannot be a reserved keyword or built-in identifier.
+Since eggs starts with a letter and consists of only letters, it adheres to the rules and is considered a valid variable name in Python.
+
+Invalid variable names:
+
+Cannot start with a digit (0-9).
+May not contain spaces or special characters (except underscore).
+Should not be a reserved keyword or built-in identifier.
+The name 100 starts with a digit, violating the rule that variable names cannot start with a digit. Therefore, 100 is not a valid variable name in Python.
+
+9. What three functions can be used to get the integer, floating-point number, or string
+version of a value?
+
+Answer:
+
+int()
+float()
+str()
+
+
+10. Why does this expression cause an error? How can you fix it?
+'I have eaten' + 99 + 'burritos.'
+
+Answer:
+
+
+The expression 'I have eaten' + 99 + 'burritos.' causes an error because you are trying to concatenate a string ('I have eaten' and 'burritos.') with an integer (99) using the + operator. In Python, the + operator is used for concatenating strings or performing addition with numeric values, but it does not automatically convert between different data types.
+
+To fix this error, you need to ensure that all the operands are of the same data type. One way to do this is by converting the integer 99 into a string using the str() function. Here's the corrected expression:
+
+
+-->
+'I have eaten ' + str(99) + ' burritos.'
+
+    'I have eaten 99 burritos.'
+
