@@ -1,0 +1,117 @@
+1. What are escape characters, and how do you use them?
+
+Escape characters are special characters in Python that are used to represent certain actions or characters that cannot be easily expressed in a string. They are indicated by a backslash \ followed by a specific character or sequence.
+\n - Newline: Inserts a new line.
+\t - Tab: Inserts a tab.
+\\ - Backslash: Inserts a literal backslash.
+\' - Single Quote: Inserts a single quote character.
+\" - Double Quote: Inserts a double quote character.
+
+print("Hello\nWorld")  # Prints "Hello" and "World" on separate lines
+print("Hello\tWorld")  # Prints "Hello" followed by a tab, then "World"
+print("This is a backslash: \\")  # Prints "This is a backslash: \"
+print("He said, \"Hello!\"")  # Prints 'He said, "Hello!"'
+
+
+2. What do the escape characters n and t stand for?
+
+\n represents the newline character. When it is encountered in a string, it inserts a new line and moves the cursor to the beginning of the next line. It is used to create line breaks or add vertical spacing in the output.
+
+\t represents the tab character. When it is encountered in a string, it inserts a horizontal tab or indentation. It is used to align text or create consistent spacing between elements.
+
+
+3. What is the way to include backslash characters in a string?
+
+
+To include a backslash character ('\') itself in a string, you need to use a double backslash ('\\'). The reason is that the backslash is an escape character in Python strings, so if you want to represent a literal backslash, you need to escape it by using another backslash.
+print("This is a backslash: \\")  # Prints: This is a backslash: \
+
+
+4. The string "Howl's Moving Castle" is a correct value. Why isn't the single quote character in the
+word Howl's not escaped a problem?
+
+In Python, single quotes (') and double quotes (") can be used interchangeably to define string literals. When you have a string that contains a single quote character, such as in the string "Howl's Moving Castle", you can use double quotes to define the string without any issues. Similarly, you can use single quotes to define a string that contains double quote characters.
+
+
+5. How do you write a string of newlines if you don't want to use the n character?
+
+If you don't want to use the escape character \n to represent a newline in a string, you can use triple quotes (''' or """) to create a multiline string. By placing the content of the string between triple quotes, you can include newlines directly in the string without using the escape character.
+
+6. What are the values of the given expressions?
+'Hello, world!'[1]
+'Hello, world!'[0:5]
+'Hello, world!'[:5]
+'Hello, world!'[3:]
+
+Answer:
+
+The values of the given expressions are as follows:
+
+'Hello, world!'[1]: This expression retrieves the character at index 1 of the string 'Hello, world!'. In Python, indexing starts from 0, so the character at index 1 is 'e'.
+Output: 'e'
+
+'Hello, world!'[0:5]: This expression retrieves the characters from index 0 to 4 (exclusive) of the string 'Hello, world!'. It extracts the substring 'Hello'.
+Output: 'Hello'
+
+'Hello, world!'[:5]: This expression retrieves the characters from the beginning of the string up to index 4 (exclusive). It extracts the substring 'Hello'.
+Output: 'Hello'
+
+'Hello, world!'[3:]: This expression retrieves the characters from index 3 to the end of the string. It extracts the substring 'lo, world!'.
+Output: 'lo, world!'
+
+
+7. What are the values of the following expressions?
+'Hello'.upper()
+'Hello'.upper().isupper()
+'Hello'.upper().lower()
+
+Answer:
+
+The values of the given expressions are as follows:
+
+'Hello'.upper(): This expression converts the string 'Hello' to uppercase using the upper() method. It returns the string 'HELLO'.
+Output: 'HELLO'
+
+'Hello'.upper().isupper(): This expression performs two operations. First, it converts the string 'Hello' to uppercase using the upper() method. Then, it checks if the resulting string, 'HELLO', is entirely in uppercase using the isupper() method. Since 'HELLO' is entirely in uppercase, the isupper() method returns True.
+Output: True
+
+'Hello'.upper().lower(): This expression performs two operations. First, it converts the string 'Hello' to uppercase using the upper() method. Then, it converts the resulting string, 'HELLO', back to lowercase using the lower() method. It returns the string 'hello'.
+Output: 'hello'
+
+
+8. What are the values of the following expressions?
+'Remember, remember, the fifth of July.'.split()
+'-'.join('There can only one.'.split())
+
+Answer:
+
+The values of the given expressions are as follows:
+
+'Remember, remember, the fifth of July.'.split(): This expression splits the string 'Remember, remember, the fifth of July.' into a list of substrings based on whitespace. Since no specific delimiter is provided to the split() method, it uses whitespace as the default delimiter. The resulting list contains each word as a separate element.
+Output: ['Remember,', 'remember,', 'the', 'fifth', 'of', 'July.']
+
+'-'.join('There can only one.'.split()): This expression splits the string 'There can only one.' into a list of substrings based on whitespace using the split() method. The resulting list contains each word as a separate element. Then, it joins the elements of the list using the '-' character as the delimiter using the join() method. The resulting string combines the elements of the list with '-' between them.
+Output: 'There-can-only-one.'
+
+
+9. What are the methods for right-justifying, left-justifying, and centering a string?
+
+Right-justifying a string: The rjust() method can be used to right-justify a string by adding padding characters on the left side of the string. The syntax is string.rjust(width, fillchar), where width is the total width of the resulting string (including the original string and any padding), and fillchar is the optional character used for padding (defaults to space if not specified).
+
+Left-justifying a string: The ljust() method can be used to left-justify a string by adding padding characters on the right side of the string. The syntax is string.ljust(width, fillchar), where width is the total width of the resulting string (including the original string and any padding), and fillchar is the optional character used for padding (defaults to space if not specified).
+
+Centering a string: The center() method can be used to center a string by adding equal padding characters on both sides of the string. The syntax is string.center(width, fillchar), where width is the total width of the resulting string (including the original string and any padding), and fillchar is the optional character used for padding (defaults to space if not specified).
+
+
+
+10. What is the best way to remove whitespace characters from the start or end?
+
+The best way to remove whitespace characters from the start or end of a string is by using the strip() method. The strip() method removes leading and trailing whitespace characters (spaces, tabs, newlines) from a string and returns the resulting string.
+
+
+
+
+
+
+
+
