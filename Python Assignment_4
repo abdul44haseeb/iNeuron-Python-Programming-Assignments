@@ -1,0 +1,146 @@
+1. What exactly is [ ]?
+
+[] is used to denote an empty list. A list is a collection of items enclosed in square brackets and separated by commas. However, when used alone, [] represents an empty list, which means it does not contain any elements.
+
+
+2. In a list of values stored in a variable called spam, how would you assign the value 'hello' as the
+third value? (Assume [2, 4, 6, 8, 10] are in spam.)
+
+spam = [2, 4, 6, 8, 10]
+spam[2] = 'hello'
+print(spam)  # Output: [2, 4, 'hello', 8, 10]
+
+Let's pretend the spam includes the list ['a','b','c','d'] for the next three queries.
+
+3. What is the value of spam[int(int('3' *2) /11)]
+
+int('3' * 2) evaluates to 33 because the string '3' is multiplied by 2, resulting in '33'. The int() function then converts this string to an integer.
+
+int('33') / 11 evaluates to 3 because int('33') converts the string '33' to the integer 33, and then dividing it by 11 results in 3.
+
+spam[3] accesses the element at index 3 in the spam list. Since indexing in Python starts from 0, this corresponds to the fourth element in the list.
+
+Considering the spam list is ['a', 'b', 'c', 'd'], the value of spam[int(int('3' * 2) / 11)] would be 'd'.
+
+What is the value of spam[-1]?
+
+The value of spam[-1] would be 'd'. This is because -1 corresponds to the last element in the list, which is 'd'.
+
+5. What is the value of spam[:2]?
+
+The value of spam[:2] would be ['a', 'b']. It retrieves the first two elements of the list, resulting in a new list containing ['a', 'b'].
+
+Let's pretend bacon has the list [3.14,'cat',11,'cat','True'] for the next three questions.
+
+6. What is the value of bacon.index('cat')?
+
+The element 'cat' is present at index 1. Therefore, bacon.index('cat') would return 1.
+
+7. How does bacon.append(99) change the look of the list value in bacon?
+
+After calling bacon.append(99), the updated bacon list will be [3.14, 'cat', 11, 'cat', 'True', 99].
+
+8. How does bacon.remove('cat') change the look of the list in bacon?
+
+The bacon.remove('cat') method call will remove the first occurrence of the value 'cat' from the bacon list, modifying its contents.
+
+If we start with the list bacon as [3.14, 'cat', 11, 'cat', 'True'], after calling bacon.remove('cat'), the updated bacon list will be [3.14, 11, 'cat', 'True'].
+
+9. What are the list concatenation and list replication operators?
+
+list1 = [1, 2, 3]
+list2 = [4, 5, 6]
+concatenated_list = list1 + list2
+print(concatenated_list)
+
+[1, 2, 3, 4, 5, 6]
+
+
+list1 = [1, 2, 3]
+replicated_list = list1 * 3
+print(replicated_list)
+
+[1, 2, 3, 1, 2, 3, 1, 2, 3]
+
+
+10. What is difference between the list methods append() and insert()?
+
+The append() method is used to add an element to the end of a list. It takes a single argument, which is the element to be added, and appends it to the end of the list.
+
+The insert() method is used to insert an element at a specific position in the list. It takes two arguments: the index where the element should be inserted and the element itself.
+
+
+11. What are the two methods for removing items from a list?
+
+The two common methods for removing items from a list in Python are remove() and pop().
+
+my_list = [1, 2, 3, 2]
+my_list.remove(2)
+print(my_list)
+
+[1, 3, 2]
+
+
+my_list = [1, 2, 3, 4]
+my_list.pop(2)
+print(my_list)
+
+[1, 2, 4]
+If no index is specified, it removes the last item in the list.
+
+12. Describe how list values and string values are identical.
+
+Both lists and strings are sequences of elements. Lists contain elements of any data type, while strings contain characters.
+Both lists and strings support indexing and slicing operations. You can access individual elements or a subset of elements using index values or slicing syntax.
+Both lists and strings can be iterated over using loops. You can iterate through each element of a list or each character of a string.
+Both lists and strings support the len() function to get the length (number of elements or characters) of the object.
+Both lists and strings support concatenation using the + operator. You can combine two lists or two strings together to create a new list or string.
+
+13. What's the difference between tuples and lists?
+
+utability: Tuples are immutable, meaning their elements cannot be changed once the tuple is created. In contrast, lists are mutable, allowing modification of individual elements.
+
+Syntax: Tuples are defined using parentheses (), while lists are defined using square brackets [].
+Item assignment: Since tuples are immutable, you cannot assign new values to individual elements. However, you can create a new tuple with modified values or concatenate tuples together. Lists, being mutable, allow direct assignment and modification of elements.
+
+Usage: Tuples are typically used to represent collections of related, immutable data where element order matters, such as coordinates or database records. Lists are commonly used to store and manipulate collections of data that can be modified, sorted, or extended.
+
+Performance: Tuples are generally more memory-efficient and faster to access compared to lists because they are immutable. Lists, due to their mutable nature, require more memory and may have slower access times, especially for large collections.
+
+Available operations: Lists have a broader range of built-in methods and operations compared to tuples. Lists support methods like append(), insert(), remove(), and more, which allow for dynamic modifications. Tuples have fewer methods and operations available, given their immutability.
+
+
+14. How do you type a tuple value that only contains the integer 42?
+
+To create a tuple value that contains only the integer 42, you can use the following syntax:
+my_tuple = (42,)
+
+Note the presence of a trailing comma after the integer 42. Including the comma is important to indicate that it is a tuple with a single element. Without the comma, Python would interpret it as an integer rather than a tuple.
+
+
+15. How do you get a list value's tuple form? How do you get a tuple value's list form?
+
+To get a list value's tuple form, you can use the tuple() function, which takes an iterable (such as a list) as an argument and returns a tuple containing the same elements. 
+
+my_list = [1, 2, 3, 4, 5]
+my_tuple = tuple(my_list)
+print(my_tuple)  # Output: (1, 2, 3, 4, 5)
+
+
+16. Variables that 'contain' list values are not necessarily lists themselves. Instead, what do they contain?
+
+Variables that "contain" list values in Python do not actually contain the list itself. Instead, they contain a reference to the list object in memory.
+
+In Python, objects, including lists, are stored in memory, and variables act as references to those objects. When you assign a list to a variable, the variable does not hold the list's actual values directly. Instead, it holds a reference to the memory location where the list object is stored.
+
+The copy.copy() and copy.deepcopy() functions are used to create copies of objects in Python, but they differ in terms of how they handle nested objects.
+
+copy.copy(): This function performs a shallow copy of an object. It creates a new object and copies the references of the nested objects. In other words, the top-level object is copied, but the nested objects are not. If the original object contains mutable nested objects, changes made to the nested objects in the copy will affect the original object and vice versa. copy.copy() is sufficient for creating independent copies of simple objects or when you want to create a new object that shares some of its nested objects with the original object.
+
+copy.deepcopy(): This function performs a deep copy of an object. It creates a completely independent copy of the object and all its nested objects recursively. The new copy and the original object are completely separate, and changes made to one will not affect the other. copy.deepcopy() is useful when you want to create a new object that is completely independent of the original object and its nested objects.
+
+
+
+
+
+
