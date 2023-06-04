@@ -1,0 +1,74 @@
+1. What does an empty dictionary's code look like?
+
+An empty dictionary in Python is represented by a pair of curly braces with no key-value pairs inside. Here is an example of an empty dictionary:
+{}
+
+
+2. What is the value of a dictionary value with the key 'foo' and the value 42?
+
+{'foo': 42}
+
+In Python, dictionaries are key-value pairs, where each key is associated with a corresponding value. In this case, the key 'foo' is mapped to the value 42 within the dictionary.
+
+
+3. What is the most significant distinction between a dictionary and a list?
+
+The most significant distinction between a dictionary and a list in Python is how they store and access data:
+
+Structure: A list is an ordered collection of items that are stored in a specific order and accessed by their indices, which are integer values. On the other hand, a dictionary is an unordered collection of key-value pairs, where each key is unique and associated with a corresponding value.
+
+Accessing Elements: In a list, elements are accessed by their indices. For example, my_list[0] would access the first element of the list. In contrast, dictionaries use keys to access values. For example, my_dict['key'] would access the value associated with the key 'key' in the dictionary.
+
+Mutability: Both lists and dictionaries are mutable, meaning that you can modify their contents. However, the method of modification differs. In a list, you can change the value of an existing item or append and remove items. In a dictionary, you can modify the value associated with a key, add new key-value pairs, or remove existing key-value pairs.
+
+Ordering: Lists maintain the order of elements based on their position in the list, whereas dictionaries do not have a specific order. The elements in a dictionary are not stored in a particular sequence and can be accessed in any order.
+
+Use Cases: Lists are commonly used when you have a collection of items that need to be accessed or manipulated based on their positions. Dictionaries are useful when you want to store and retrieve data based on specific keys. They are often used to represent mappings, configurations, or lookup tables.
+
+
+4. What happens if you try to access spam['foo'] if spam is {'bar': 100}?
+
+If you try to access spam['foo'] and spam is {'bar': 100}, it will raise a KeyError because the key 'foo' does not exist in the dictionary spam.
+
+
+5. If a dictionary is stored in spam, what is the difference between the expressions 'cat' in spam and 'cat' in spam.keys()?
+
+'cat' in spam checks if the key 'cat' exists in the dictionary spam. It returns a Boolean value True if the key is found, and False otherwise. This expression directly checks for the presence of the key in the dictionary.
+
+'cat' in spam.keys() checks if the key 'cat' exists in the list of keys returned by the keys() method of the dictionary spam. The keys() method returns a view object that contains all the keys in the dictionary. This expression checks for the presence of the key in the list of keys returned by spam.keys().
+
+
+6. If a dictionary is stored in spam, what is the difference between the expressions 'cat' in spam and 'cat' in spam.values()?
+
+'cat' in spam checks if the value 'cat' exists as a key in the dictionary spam. It returns a Boolean value True if the key is found, and False otherwise. This expression checks for the presence of the value as a key in the dictionary.
+
+'cat' in spam.values() checks if the value 'cat' exists in the values of the dictionary spam. It returns a Boolean value True if the value is found in any of the values in the dictionary, and False otherwise. This expression checks for the presence of the value in the values of the dictionary.
+
+
+7. What is a shortcut for the following code?
+if 'color' not in spam:
+spam['color'] = 'black'
+
+Answer
+spam.setdefault('color', 'black')
+
+This code checks if the key 'color' exists in the spam dictionary. If it does not exist, it adds the key 'color' to the dictionary with the value 'black'. If the key already exists, it does nothing and retains its current value.
+
+
+8. How do you &quot;pretty print&quot; dictionary values using which module and function?
+
+To "pretty print" dictionary values in Python, you can use the pprint module, specifically the pprint() function.
+
+First, you need to import the pprint module using the following line of code:
+import pprint
+
+
+Then, you can use the pprint() function to print the dictionary values in a more readable and structured format. Here's an example:
+my_dict = {'name': 'John', 'age': 25, 'city': 'New York'}
+pprint.pprint(my_dict)
+
+The pprint.pprint() function will display the dictionary values in a well-formatted manner, with each key-value pair on a separate line and appropriate indentation. This makes it easier to read and understand the contents of the dictionary.
+
+
+
+
