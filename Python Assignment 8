@@ -1,0 +1,79 @@
+1. Is the Python Standard Library included with PyInputPlus?
+
+No, the Python Standard Library is not included with PyInputPlus. PyInputPlus is a separate third-party library that provides additional input validation and handling functionality beyond what is available in the Python Standard Library. While PyInputPlus builds upon the functionality provided by the standard library's input() function, it is not a part of the standard library itself.
+
+
+2. Why is PyInputPlus commonly imported with import pyinputplus as pypi?
+
+Importing PyInputPlus commonly as pypi with the statement import pyinputplus as pypi is a matter of personal preference and coding style. It allows you to use a shorter and more concise alias (pypi) instead of typing out the full module name pyinputplus every time you need to reference a function or class from the PyInputPlus library. This can make the code easier to read and write, especially if you are using PyInputPlus frequently throughout your program. However, the choice of alias (pypi in this case) is arbitrary and you can use any valid identifier that adheres to Python's naming conventions.
+
+
+3. How do you distinguish between inputInt() and inputFloat()?
+
+
+In PyInputPlus, inputInt() and inputFloat() are functions used to prompt the user for input and return an integer and a float value, respectively. The main difference between them is the type of value they expect from the user.
+
+inputInt() expects the user to enter an integer value. If the user enters a non-integer value, PyInputPlus will reprompt until a valid integer is provided. It returns the integer value entered by the user.
+
+inputFloat() expects the user to enter a floating-point value, which can be either an integer or a decimal number. If the user enters a non-numeric value, PyInputPlus will reprompt until a valid float is provided. It returns the float value entered by the user.
+
+
+4. Using PyInputPlus, how do you ensure that the user enters a whole number between 0 and 99?
+
+To ensure that the user enters a whole number between 0 and 99 using PyInputPlus, you can utilize the inputInt() function with additional arguments for validation.
+
+import pyinputplus as pypi
+
+number = pypi.inputInt(prompt='Enter a number between 0 and 99: ', min=0, max=99)
+print(f"You entered: {number}")
+
+In the above code, inputInt() is used to prompt the user for an integer value. The min and max arguments are set to 0 and 99, respectively, to enforce the desired range. If the user enters a value outside this range or a non-integer value, PyInputPlus will reprompt until a valid input is provided. Once a valid input is received, it will be stored in the number variable and displayed.
+
+
+5. What is transferred to the keyword arguments allowRegexes and blockRegexes?
+
+
+In PyInputPlus, the keyword arguments allowRegexes and blockRegexes are used to specify regular expressions that allow or block certain input patterns.
+
+allowRegexes accepts a list of regular expression patterns. If any of these patterns match the user's input, it will be considered valid.
+blockRegexes also accepts a list of regular expression patterns. If any of these patterns match the user's input, it will be considered invalid.
+These arguments provide a way to define custom validation rules based on regular expressions. PyInputPlus will apply these rules to the user's input and either allow or block it based on the specified patterns.
+
+
+6. If a blank input is entered three times, what does inputStr(limit=3) do?
+
+If a blank input is entered three times when using inputStr(limit=3) in PyInputPlus, the function will raise a pyinputplus.RetryLimitException.
+
+The limit parameter in inputStr(limit=3) specifies the maximum number of retries or attempts allowed before raising an exception. In this case, if the user enters a blank input three times consecutively, the RetryLimitException will be raised.
+
+
+import pyinputplus as pypi
+
+try:
+    text = pypi.inputStr(prompt='Enter text: ', limit=3)
+    print(f"You entered: {text}")
+except pypi.RetryLimitException:
+    print("Maximum retry limit exceeded.")
+
+In the above code, if the user enters a blank input three times, the program will output "Maximum retry limit exceeded." If the user provides non-blank input within the three attempts, the input will be accepted and printed.
+
+
+7. If blank input is entered three times, what does inputStr(limit=3, default='hello') do?
+
+If blank input is entered three times when using inputStr(limit=3, default='hello') in PyInputPlus, the function will raise a RetryLimitException with the message "Blank values are not allowed.".
+
+The limit parameter in inputStr(limit=3, default='hello') specifies the maximum number of retries or attempts allowed before raising a RetryLimitException. In this case, if the user enters a blank input three times consecutively, the function will raise the exception instead of returning the default value.
+
+import pyinputplus as pypi
+
+try:
+    text = pypi.inputStr(prompt='Enter text: ', limit=3, default='hello')
+    print(f"You entered: {text}")
+except pypi.RetryLimitException as e:
+    print(e)
+
+
+If the user enters a blank input three times, the program will output: "Blank values are not allowed.". If the user provides non-blank input within the three attempts, the input will be accepted and printed instead of raising the exception.
+
+
+
