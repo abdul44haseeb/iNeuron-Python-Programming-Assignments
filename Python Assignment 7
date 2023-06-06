@@ -1,0 +1,252 @@
+1. What is the name of the feature responsible for generating Regex objects?
+
+The feature responsible for generating Regex objects in Python is called the "re" module. The "re" module provides support for regular expressions, which are a powerful tool for pattern matching and text manipulation. It allows you to create Regex objects that can be used to search, match, and manipulate strings based on specific patterns or rules.
+
+
+2. Why do raw strings often appear in Regex objects?
+
+Raw strings (prefixed with an "r") are often used in Regex objects because they treat backslashes ("") as literal characters instead of escape characters. In regular expressions, backslashes are commonly used for special characters and sequences, such as "\d" for matching digits or "\s" for matching whitespace. However, in regular Python strings, backslashes are also used as escape characters, which can lead to conflicts and unwanted behavior.
+
+By using raw strings, you can ensure that the regular expression patterns are interpreted exactly as they are written, without any unintended escape sequences. This is particularly useful when working with complex regular expressions that contain multiple backslashes. Using raw strings eliminates the need for excessive escaping and makes the patterns more readable and easier to maintain.
+
+
+
+3. What is the return value of the search() method?
+
+The search() method in Python's regular expression module (re) returns a match object if a pattern is found in the searched string, and None if no match is found.
+
+
+4. From a Match item, how do you get the actual strings that match the pattern?
+
+To get the actual strings that match the pattern from a match object, you can use the group() method. The group() method returns the substring that was matched by the pattern.
+
+
+5. In the regex which created from the r'(\d\d\d)-(\d\d\d-\d\d\d\d)', what does group zero cover? Group 2? Group 1?
+
+In the given regular expression r'(\d\d\d)-(\d\d\d-\d\d\d\d)', the groups are defined by the parentheses.
+
+Group zero (group 0) covers the entire matched string, which means it represents the entire pattern match. In this case, it will be the complete phone number in the format "xxx-xxx-xxxx".
+
+Group one (group 1) corresponds to the first set of parentheses (\d\d\d). It captures the three digits before the hyphen. It represents the first part of the phone number.
+
+Group two (group 2) corresponds to the second set of parentheses (\d\d\d-\d\d\d\d). It captures the remaining digits after the hyphen. It represents the second part of the phone number.
+
+
+6. In standard expression syntax, parentheses and intervals have distinct meanings. How can you tell
+a regex that you want it to fit real parentheses and periods?
+
+To tell the regex engine that you want to match literal parentheses, you can use the backslash followed by the parenthesis: \( and \). Similarly, to match a literal period, you can use \.
+
+To match the string "(hello)", the regex pattern would be \(hello\).
+To match the string "2.99", the regex pattern would be 2\.99.
+
+
+7. The findall() method returns a string list or a list of string tuples. What causes it to return one of
+the two options?
+
+The findall() method returns a list of string matches when the regular expression pattern being searched does not contain any capturing groups (parentheses). In this case, each match is returned as a separate string in the list.
+
+On the other hand, if the regular expression pattern contains one or more capturing groups, findall() returns a list of string tuples. Each tuple represents a match, and each element of the tuple corresponds to a capturing group within the pattern.
+
+
+8. In standard expressions, what does the | character mean?
+
+In standard regular expressions, the | character, known as the pipe or vertical bar, represents the logical OR operation. It is used to specify alternative patterns.
+
+When used within a regular expression pattern, the | character acts as a separator between multiple patterns. It matches either the pattern on its left or the pattern on its right.
+
+
+10.In regular expressions, what is the difference between the + and * characters?
+
+In regular expressions, the + and * characters are quantifiers that control the repetition of the preceding pattern. The main difference between them is as follows:
+
++ (Plus): Matches one or more occurrences of the preceding pattern.
+
+Example: ca+t matches "cat", "caat", "caaat", and so on, but not "ct" (since there must be at least one occurrence of "a" after "c").
+* (Asterisk): Matches zero or more occurrences of the preceding pattern.
+
+Example: ca*t matches "ct", "cat", "caat", "caaat", and so on (since "a" can occur zero or more times).
+
+
+11. What is the difference between {4} and {4,5} in regular expression?
+
+In regular expressions, {4} and {4,5} are quantifiers used to specify the exact number of occurrences of the preceding pattern. The main difference between them is as follows:
+
+{4}: Matches exactly four occurrences of the preceding pattern.
+
+Example: a{4} matches "aaaa" but does not match "aa" or "aaaaa".
+{4,5}: Matches between four and five occurrences of the preceding pattern.
+
+Example: a{4,5} matches "aaaa" and "aaaaa" but does not match "aa" or "aaaaaa".
+
+
+12. What do you mean by the \d, \w, and \s shorthand character classes signify in regular
+expressions?
+
+In regular expressions, the shorthand character classes \d, \w, and \s have the following meanings:
+
+\d: Matches any digit character (0-9).
+
+Example: \d matches "1", "2", "3", etc.
+\w: Matches any alphanumeric character (letter or digit) or underscore.
+
+Example: \w matches "a", "B", "0", "_", etc.
+\s: Matches any whitespace character (space, tab, newline).
+
+Example: \s matches a space, a tab, or a newline character.
+
+
+13. What do means by \D, \W, and \S shorthand character classes signify in regular expressions?
+
+In regular expressions, the shorthand character classes \D, \W, and \S are negations of the corresponding shorthand character classes \d, \w, and \s. Here's what they signify:
+
+\D: Matches any character that is not a digit.
+
+Example: \D matches any character that is not "0", "1", "2", etc.
+\W: Matches any character that is not an alphanumeric character or underscore.
+
+Example: \W matches any character that is not a letter, digit, or underscore.
+\S: Matches any character that is not a whitespace character.
+
+Example: \S matches any character that is not a space, tab, or newline.
+
+
+14. What is the difference between .*? and .*?
+
+
+The difference between .*? and .* in regular expressions lies in their behavior of matching patterns.
+
+.*? (Lazy or Non-Greedy Match):
+
+The .*? pattern matches zero or more occurrences of any character (except newline) in a lazy or non-greedy manner.
+It tries to match as few characters as possible to satisfy the overall pattern.
+It stops matching as soon as the next part of the pattern can be matched.
+.* (Greedy Match):
+
+The .* pattern matches zero or more occurrences of any character (except newline) in a greedy manner.
+It tries to match as many characters as possible to satisfy the overall pattern.
+It keeps matching until it reaches the end of the string or until the next part of the pattern cannot be matched.
+
+
+15. What is the syntax for matching both numbers and lowercase letters with a character class?
+
+To match both numbers and lowercase letters using a character class in regular expressions, you can use the following syntax:
+[0-9a-z]
+
+In this syntax:
+
+[0-9] matches any digit from 0 to 9.
+[a-z] matches any lowercase letter from a to z.
+
+
+16. What is the procedure for making a normal expression in regax case insensitive?
+
+Import the re module: import re
+Define your regular expression pattern.
+Pass the re.IGNORECASE flag as the second argument to the re.compile() function, or append the re.I flag directly to the pattern using the | (pipe) operator.
+Use the resulting regular expression object with the desired regex function (search(), findall(), etc.) to perform case-insensitive matching.
+
+Example:
+import re
+
+pattern = re.compile(r'hello', re.IGNORECASE)
+result = pattern.search('Hello World')
+
+
+17. What does the . character normally match? What does it match if re.DOTALL is passed as 2nd
+argument in re.compile()?
+
+In a regular expression, the . (dot) character normally matches any character except a newline (\n). However, if the re.DOTALL flag is passed as the second argument to re.compile(), the . character will match any character including a newline.
+
+
+18. If numReg = re.compile(r'\d+'), what will numRegex.sub('X', '11 drummers, 10 pipers, five rings, 4
+hen') return?
+
+If numRegex is defined as re.compile(r'\d+'), and we use the sub() method to replace all matches of numRegex with the string 'X' in the input string '11 drummers, 10 pipers, five rings, 4 hens', the result will be:
+
+'X drummers, X pipers, five rings, X hens'
+
+In the resulting string, all numeric digits are replaced with the letter 'X'.
+
+
+19. What does passing re.VERBOSE as the 2nd argument to re.compile() allow to do?
+
+Passing re.VERBOSE as the second argument to re.compile() allows for the use of verbose regular expressions. It enables the use of multi-line regular expressions with comments and whitespace, making the regular expressions more readable and easier to understand.
+
+When re.VERBOSE is used, whitespace within the regular expression pattern is ignored unless it is escaped or within a character class. Additionally, comments starting with the # symbol can be added within the pattern to provide explanations or annotations.
+
+This feature is helpful when dealing with complex regular expressions that require better organization and documentation for improved readability.
+
+
+To match a number with commas for every three digits, you can use the following regex pattern:
+^\d{1,3}(,\d{3})*$
+
+Explanation of the pattern:
+
+^ asserts the start of the string.
+\d{1,3} matches 1 to 3 digits.
+(,\d{3})* matches zero or more occurrences of a comma followed by exactly 3 digits.
+$ asserts the end of the string.
+
+
+21. How would you write a regex that matches the full name of someone whose last name is
+Watanabe? You can assume that the first name that comes before it will always be one word that
+begins with a capital letter. The regex must match the following:
+'Haruto Watanabe'
+'Alice Watanabe'
+'RoboCop Watanabe'
+but not the following:
+'haruto Watanabe' (where the first name is not capitalized)
+'Mr. Watanabe' (where the preceding word has a nonletter character)
+'Watanabe' (which has no first name)
+'Haruto watanabe' (where Watanabe is not capitalized)
+
+^[A-Z][a-zA-Z]*\sWatanabe$
+
+Explanation of the regex pattern:
+
+^ asserts the start of the string.
+[A-Z] matches any uppercase letter, ensuring that the first character of the first name is capitalized.
+[a-zA-Z]* matches zero or more lowercase or uppercase letters for the remaining characters of the first name.
+\s matches a whitespace character to separate the first name and last name.
+Watanabe matches the specific last name "Watanabe".
+$ asserts the end of the string.
+This regex pattern will match full names with the last name "Watanabe" while ensuring that the first name is capitalized and that there are no additional characters before or after the provided examples.
+
+
+22. How would you write a regex that matches a sentence where the first word is either Alice, Bob,
+or Carol; the second word is either eats, pets, or throws; the third word is apples, cats, or baseballs;
+and the sentence ends with a period? This regex should be case-insensitive. It must match the
+following:
+'Alice eats apples.'
+'Bob pets cats.'
+'Carol throws baseballs.'
+'Alice throws Apples.'
+'BOB EATS CATS.'
+but not the following:
+'RoboCop eats apples.'
+'ALICE THROWS FOOTBALLS.'
+'Carol eats 7 cats.'
+
+To match a sentence where the first word is either "Alice," "Bob," or "Carol," the second word is either "eats," "pets," or "throws," the third word is either "apples," "cats," or "baseballs," and the sentence ends with a period, you can use the following case-insensitive regular expression:
+
+^(Alice|Bob|Carol)\s(eats|pets|throws)\s(apples|cats|baseballs)\.$
+
+Explanation of the regex pattern:
+
+^ asserts the start of the string.
+(Alice|Bob|Carol) matches either "Alice," "Bob," or "Carol" as the first word.
+\s matches a whitespace character to separate the first and second words.
+(eats|pets|throws) matches either "eats," "pets," or "throws" as the second word.
+\s matches a whitespace character to separate the second and third words.
+(apples|cats|baseballs) matches either "apples," "cats," or "baseballs" as the third word.
+\. matches a period at the end of the sentence.
+$ asserts the end of the string.
+
+This regex pattern will match sentences with the specified structure and word choices, while being case-insensitive. It will not match sentences that deviate from the given examples, such as those containing different words or additional characters after the period.
+
+
+
+
+
+
