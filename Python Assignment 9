@@ -1,0 +1,76 @@
+1. To what does a relative path refer?
+
+A relative path refers to the location of a file or directory relative to the current working directory. It is not an absolute path that starts from the root directory. Instead, a relative path provides a path that is relative to the current directory or to another known directory.
+
+For example, if the current working directory is /home/user/, a relative path such as documents/file.txt refers to the file file.txt located in the documents directory relative to the current directory.
+
+
+2. What does an absolute path start with your operating system?
+
+An absolute path typically starts with the root directory of the operating system. The specific format and naming conventions of absolute paths can vary depending on the operating system.
+
+In Windows, an absolute path starts with the drive letter followed by a colon (:) and a backslash (\). For example: C:\Users\Username\Documents\file.txt.
+
+
+3. What do the functions os.getcwd() and os.chdir() do?
+
+The functions os.getcwd() and os.chdir() are part of the os module in Python and are used to work with the current working directory.
+
+os.getcwd(): This function returns a string representing the current working directory (CWD) of the process. The CWD is the directory from which the Python script is currently being executed. It provides the absolute path of the current directory.
+
+os.chdir(path): This function changes the current working directory to the specified path. The path can be either an absolute path or a relative path. After calling os.chdir(), the CWD is updated to the specified directory.
+
+
+4. What are the . and .. folders?
+
+In file systems, the . and .. folders are special directory references.
+
+. (dot): It represents the current directory. It is used to refer to the current working directory in a file system. For example, if you are in the directory /home/user, the . refers to the directory /home/user itself.
+
+.. (dot dot): It represents the parent directory. It is used to refer to the directory that is one level up in the directory hierarchy. For example, if you are in the directory /home/user, the .. refers to the directory /home.
+
+
+5. In C:\bacon\eggs\spam.txt, which part is the dir name, and which part is the base name?
+
+In the file path C:\bacon\eggs\spam.txt:
+
+Directory name (dir name): C:\bacon\eggs
+Base name: spam.txt
+
+
+6. What are the three “mode” arguments that can be passed to the open() function?
+
+The three "mode" arguments that can be passed to the open() function in Python are:
+
+'r': Read mode - Opens the file for reading (default mode). If the file doesn't exist, it raises a FileNotFoundError.
+'w': Write mode - Opens the file for writing. If the file exists, it truncates the file to zero length. If the file doesn't exist, it creates a new file.
+'a': Append mode - Opens the file for appending. If the file exists, it seeks to the end of the file. If the file doesn't exist, it creates a new file.
+
+
+7. What happens if an existing file is opened in write mode?
+
+If an existing file is opened in write mode ('w'), the file will be truncated to zero length, meaning that all its contents will be deleted. If the file doesn't exist, a new empty file will be created. Any subsequent write operations to the file will overwrite its contents.
+
+It's important to exercise caution when using write mode, as it can lead to data loss if used incorrectly.
+
+
+8. How do you tell the difference between read() and readlines()?
+
+The read() method and the readlines() method are used to read data from a file, but they have different behaviors:
+
+read(): This method reads the entire contents of the file as a single string. It returns a string that includes all the characters in the file, including newline characters ('\n'). If you don't specify the size argument, it will read the entire file. If you specify a size argument, it will read that number of characters from the file.
+
+readlines(): This method reads the lines of the file and returns a list where each element represents a line of the file as a string. The newline characters ('\n') at the end of each line are included in the strings. If you call readlines() without any arguments, it will read all the lines of the file.
+
+
+9. What data structure does a shelf value resemble?
+
+A shelf value in Python resembles a dictionary-like data structure. It is provided by the shelve module in Python's standard library and is used for persistent storage of Python objects. The shelf value acts as a persistent dictionary where keys are strings and values can be any picklable Python object.
+
+Similar to a dictionary, you can store, retrieve, and delete key-value pairs in a shelf. The shelf data structure allows you to store and retrieve Python objects between program runs, providing a convenient way to persistently store and retrieve data.
+
+The shelf module uses a file-based storage format internally to store the data, making it suitable for storing larger amounts of data that need to be persisted across multiple executions of a program.
+
+
+
+
