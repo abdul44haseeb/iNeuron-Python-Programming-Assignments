@@ -1,0 +1,134 @@
+1. How do you distinguish between shutil.copy() and shutil.copytree()?
+
+The shutil module in Python provides functions for file and directory operations. When it comes to copying files and directories, there are two main functions available: shutil.copy() and shutil.copytree(). Here's how you can distinguish between them:
+
+shutil.copy():
+
+Usage: shutil.copy(src, dst)
+Functionality: Copies a single file from the source (src) to the destination (dst).
+Source: Can be a file path or a file-like object.
+Destination: Must be the path of the target file or the target directory with a new filename.
+Behavior:
+If the destination is an existing file, it will be overwritten.
+If the destination is an existing directory, a new file with the same name as the source file will be created in that directory.
+The file metadata (permissions, timestamps, etc.) is preserved.
+
+shutil.copytree():
+
+Usage: shutil.copytree(src, dst)
+Functionality: Recursively copies an entire directory tree (including all files and subdirectories) from the source (src) to the destination (dst).
+Source: Must be the path of the source directory.
+Destination: Must be the path of the target directory.
+Behavior:
+The destination directory must not already exist.
+All files and subdirectories within the source directory are copied to the destination directory.
+The file metadata and directory structure are preserved.
+
+
+2. What function is used to rename files??
+
+The os.rename() function is used to rename files in Python. It is part of the built-in os module, which provides various operating system-related functionality. Here's how you can use os.rename() to rename files:
+
+import os
+
+old_filename = 'old_name.txt'
+new_filename = 'new_name.txt'
+
+os.rename(old_filename, new_filename)
+
+In the example above, old_name.txt is the original filename, and new_name.txt is the desired new filename. By calling os.rename(), the file will be renamed accordingly. It's important to note that both old_filename and new_filename should include the path if the file is not in the current working directory.
+
+
+3. What is the difference between the delete functions in the send2trash and shutil modules?
+
+The send2trash and shutil modules in Python provide functions for deleting files and directories. While both modules serve a similar purpose, there are some differences between their delete functions. Here's an overview:
+
+send2trash module:
+
+Function: send2trash.send2trash(path)
+Usage: Sends a file or directory to the recycle bin/trash instead of permanently deleting it.
+Behavior:
+The specified file or directory is moved to the recycle bin/trash, allowing for potential recovery.
+Supports both files and directories.
+Can handle cross-platform file deletions (Windows, macOS, and Linux).
+Raises an exception if the specified path does not exist.
+
+send2trash.send2trash('path/to/file.txt')
+shutil module:
+
+Functions:
+shutil.rmtree(path)
+Usage: Recursively deletes a directory and its contents.
+Behavior: Deletes the specified directory and all its files and subdirectories permanently.
+shutil.remove(path)
+Usage: Deletes a file.
+Behavior: Permanently deletes the specified file.
+Differences:
+shutil.rmtree() is used for deleting directories, while shutil.remove() is used for deleting files.
+The deletion performed by shutil functions is permanent and cannot be undone or sent to the recycle bin/trash.
+shutil functions are part of the standard library, while send2trash needs to be installed separately.
+Both shutil.rmtree() and shutil.remove() raise exceptions if the specified path does not exist.
+
+
+4.ZipFile objects have a close() method just like File objects’ close() method. What ZipFile method is
+equivalent to File objects’ open() method?
+
+The equivalent method in the ZipFile class to the open() method in file objects is the ZipFile() constructor.
+
+The ZipFile() constructor is used to create a new ZipFile object, which represents a ZIP archive file. It allows you to open an existing ZIP file or create a new one. 
+
+import zipfile
+
+# Open an existing ZIP file
+zip_obj = zipfile.ZipFile('archive.zip', 'r')
+
+# Create a new ZIP file
+new_zip_obj = zipfile.ZipFile('new_archive.zip', 'w')
+
+In the example above, the ZipFile() constructor is used to open an existing ZIP file named 'archive.zip' in read mode by passing the second argument as 'r'. It returns a ZipFile object (zip_obj) that can be used to access the contents of the ZIP file.
+
+Similarly, to create a new ZIP file, you use the ZipFile() constructor with the second argument set to 'w' to indicate write mode. The resulting ZipFile object (new_zip_obj) allows you to add files and directories to the new archive.
+
+It's important to note that after using the ZipFile() constructor, you need to close the ZipFile object by calling its close() method when you're done working with the ZIP file, just like you would with a regular file object. This ensures that any resources associated with the ZIP file are properly released.
+
+zip_obj.close()
+new_zip_obj.close()
+
+By closing the ZipFile object, any changes made to the ZIP file will be saved and the file will be closed, freeing up system resources.
+
+
+5. Create a programme that searches a folder tree for files with a certain file extension (such as .pdf
+or .jpg). Copy these files from whatever location they are in to a new folder.
+
+import os
+import shutil
+
+def search_and_copy_files(source_folder, target_folder, extension):
+    for root, dirs, files in os.walk(source_folder):
+        for file in files:
+            if file.endswith(extension):
+                source_path = os.path.join(root, file)
+                target_path = os.path.join(target_folder, file)
+                shutil.copy(source_path, target_path)
+                print(f"Copied: {source_path} -> {target_path}")
+
+# Example usage
+source_folder = "path/to/source/folder"
+target_folder = "path/to/target/folder"
+extension = ".pdf"
+
+search_and_copy_files(source_folder, target_folder, extension)
+
+In the above program:
+
+The search_and_copy_files function takes three parameters: source_folder (the root folder to start the search from), target_folder (the folder where the matching files will be copied), and extension (the file extension to search for).
+The program uses the os.walk function to traverse the folder tree starting from the source_folder. It recursively explores all subdirectories and retrieves the list of files in each directory.
+For each file found, it checks if the file's extension matches the specified extension using the endswith method.
+If a file matches the extension, it constructs the source and target paths by joining the root path and the file name.
+It then uses shutil.copy to copy the file from the source path to the target path.
+Finally, it prints a message indicating the source and target paths of the copied file.
+You can customize the source_folder, target_folder, and extension variables to suit your specific needs.
+
+
+
+
