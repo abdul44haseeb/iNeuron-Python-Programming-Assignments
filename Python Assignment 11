@@ -1,0 +1,148 @@
+1. Create an assert statement that throws an AssertionError if the variable spam is a negative
+integer.
+
+spam = -5  # Example value of spam
+
+assert spam >= 0, "spam should be a non-negative integer"
+
+In the above code, the assert statement checks if the value of spam is greater than or equal to zero. If the condition evaluates to False, indicating that spam is a negative integer, an AssertionError is raised with the specified error message: "spam should be a non-negative integer".
+
+
+2. Write an assert statement that triggers an AssertionError if the variables eggs and bacon contain
+strings that are the same as each other, even if their cases are different (that is, 'hello' and 'hello' are
+considered the same, and 'goodbye' and 'GOODbye' are also considered the same).
+
+To trigger an AssertionError if the variables eggs and bacon contain strings that are the same, regardless of their case, you can use the lower() method to convert the strings to lowercase before comparing them. Here's an example assert statement:
+eggs = "Hello"  # Example value of eggs
+bacon = "hello"  # Example value of bacon
+
+assert eggs.lower() != bacon.lower(), "eggs and bacon should not have the same value"
+
+In the above code, the lower() method is applied to both eggs and bacon, converting the strings to lowercase. Then, the assert statement checks if the lowercase versions of the strings are not equal. If the condition evaluates to False, indicating that eggs and bacon have the same value regardless of case, an AssertionError is raised with the specified error message: "eggs and bacon should not have the same value".
+
+
+3. Create an assert statement that throws an AssertionError every time.
+
+
+To create an assert statement that throws an AssertionError every time, you can simply provide a condition that always evaluates to False. 
+assert False, "This assert statement always throws an AssertionError"
+
+In the above code, the condition False is provided, which is always False. Therefore, the assert statement will always raise an AssertionError. The second argument is the error message that will be displayed when the AssertionError is raised.
+
+
+4. What are the two lines that must be present in your software in order to call logging.debug()?
+
+In order to call the logging.debug() function, you need to include two lines in your software:
+
+import logging //This line imports the logging module, which provides the necessary functions and classes for logging in Python.
+logging.basicConfig(level=logging.DEBUG) //This line configures the logging level to DEBUG. It sets the threshold level for the logging messages, allowing debug level messages to be captured. You can adjust the logging level to suit your needs (e.g., INFO, WARNING, ERROR, etc.).
+
+After including these two lines, you can use logging.debug() to log debug-level messages in your software. 
+
+5. What are the two lines that your program must have in order to have logging.debug() send a
+logging message to a file named programLog.txt?
+
+To have logging.debug() send a logging message to a file named programLog.txt, you need to include the following two lines in your program:
+import logging //This line imports the logging module, which provides the necessary functions and classes for logging in Python.
+logging.basicConfig(filename='programLog.txt', level=logging.DEBUG) //This line configures the logging to write messages to the specified file, programLog.txt. The filename argument specifies the name of the log file, and level=logging.DEBUG sets the logging level to DEBUG. You can adjust the logging level to suit your needs (e.g., INFO, WARNING, ERROR, etc.).
+
+After including these two lines, you can use logging.debug() to log debug-level messages, and they will be written to the programLog.txt file.
+
+
+6. What are the five levels of logging?
+
+The five levels of logging in Python, in increasing order of severity, are:
+
+DEBUG:
+The DEBUG level is the lowest severity level. It is used for detailed information, typically useful for debugging purposes. These messages are primarily intended for developers and are usually disabled in production environments.
+
+INFO:
+The INFO level provides informational messages that confirm that things are working as expected. These messages are used to track the general flow of the program and provide useful updates. They are also typically enabled in production environments.
+
+WARNING:
+The WARNING level indicates potentially unexpected or undesirable events that are not critical to the program's execution. These messages highlight situations that could lead to errors or issues in the future but do not cause immediate problems.
+
+ERROR:
+The ERROR level signifies errors that caused a particular function or operation to fail. When an ERROR level message is logged, it indicates that something has gone wrong and that the program may not be able to recover or continue executing properly.
+
+CRITICAL:
+The CRITICAL level represents the most severe level of logging. It indicates critical errors or failures that may lead to the termination of the program. CRITICAL level messages often require immediate attention, as they indicate significant problems that need to be addressed urgently.
+
+These levels provide a hierarchy of severity, allowing developers to control the verbosity of the log messages based on the desired level of detail and the criticality of the events being logged.
+
+
+7. What line of code would you add to your software to disable all logging messages?
+
+
+To disable all logging messages in your software, you can add the following line of code:
+logging.disable(logging.CRITICAL)
+
+This line sets the logging level to CRITICAL, which effectively disables all log messages with severity levels lower than or equal to CRITICAL. Any log messages at the DEBUG, INFO, WARNING, and ERROR levels will be suppressed and not outputted.
+
+By disabling logging messages, you can prevent any log output from being displayed, which can be useful in certain scenarios where logging is not required or desired. However, it's important to note that this line should be used with caution, as it completely disables all logging messages, including potentially critical error messages that may be needed for troubleshooting or debugging purposes.
+
+Using logging messages is generally considered better than using print() statements for displaying messages in software for several reasons:
+
+Configurability and Flexibility:
+Logging provides a configurable and flexible way to manage messages. With logging, you can easily control the level of verbosity by setting the logging level. This allows you to enable or disable different levels of messages (e.g., DEBUG, INFO, WARNING, ERROR, CRITICAL) based on your needs, without modifying the code. On the other hand, with print() statements, you would need to manually remove or comment out the statements to control the output.
+
+Granular Control:
+Logging allows you to specify different log levels for different parts of your code. This means you can have more detailed logging in certain sections and less verbose logging in others. This granular control helps in troubleshooting and identifying issues in specific areas of your code.
+
+Output Customization:
+Logging provides the ability to customize the output format, including timestamps, log levels, and additional contextual information. You can configure logging to include relevant details such as the module, function, or line number where the log message originated. This information can be invaluable for debugging and tracking the flow of your program.
+
+Logging to Multiple Destinations:
+Logging allows you to log messages to multiple destinations, such as files, console output, or remote servers. This flexibility enables you to capture and store logs in a centralized location for later analysis or review, which can be especially useful in large-scale applications or distributed systems.
+
+Performance Impact:
+Compared to using print() statements, logging is generally more efficient and has a lower performance impact. The logging module is optimized for handling log messages, allowing you to control the logging behavior without significantly affecting the performance of your code.
+
+Production-Ready:
+Logging is a standard practice in software development and is widely used in production environments. It provides a systematic and organized approach to capturing and managing log messages. Unlike print() statements, logging is designed to handle various scenarios and scales well in production systems.
+
+
+
+9. What are the differences between the Step Over, Step In, and Step Out buttons in the debugger?
+
+The Step Over, Step In, and Step Out buttons are commonly found in debuggers and are used to control the execution flow during debugging. Here are the differences between these buttons:
+
+Step Over:
+The Step Over button allows you to execute the current line of code and move to the next line in a single step. If the current line contains a function call, the debugger will execute the entire function without stepping into it. This button is useful when you want to skip the details of a function call and focus on the higher-level flow of your program.
+
+Step In:
+The Step In button allows you to enter into a function call and move to the first line of the called function. If the current line contains a function call, pressing Step In will take you inside that function, allowing you to step through the code within the called function line by line. This button is useful when you want to dive into the details of a specific function call and understand its execution.
+
+Step Out:
+The Step Out button allows you to continue the execution until the current function call is completed and returns to the calling line. If you are already inside a function, pressing Step Out will execute the remaining lines of that function without stepping through them and return to the caller. This button is useful when you want to quickly skip the remaining part of a function and return to the higher-level context.
+
+
+
+10.After you click Continue, when will the debugger stop ?
+
+fter clicking the Continue button in a debugger, the debugger will stop at the next breakpoint encountered in the code.
+
+A breakpoint is a designated point in the code where the debugger pauses the execution, allowing you to inspect the program's state, variables, and step through the code. You can set breakpoints at specific lines of code or conditions to pause the execution and examine the program's behavior at that particular point.
+
+When you click Continue, the debugger will continue executing the code until it encounters the next breakpoint. If there are no more breakpoints set or the end of the program is reached, the debugger will continue executing until the program completes or encounters an error.
+
+
+11. What is the concept of a breakpoint?
+
+In software development and debugging, a breakpoint is a designated point in the source code where the debugger pauses the execution of the program. It allows developers to examine the program's state, inspect variables, and step through the code line by line for debugging and troubleshooting purposes.
+
+Setting a breakpoint is a deliberate action taken by a developer to halt the program's execution at a specific location or condition. When the program reaches the breakpoint during execution, the debugger interrupts the program flow, giving the developer an opportunity to investigate the program's behavior and diagnose any issues.
+
+Some common use cases for breakpoints include:
+
+Examining Variables: Developers can set breakpoints at critical points in the code to inspect the values of variables, ensuring they contain the expected values. This helps in understanding how the program state changes during execution and identifying any discrepancies.
+
+Stepping through Code: Breakpoints allow developers to step through the code line by line, executing one line at a time. This helps in understanding the flow of execution, identifying logic errors, and pinpointing the cause of bugs or unexpected behavior.
+
+Conditional Breakpoints: Breakpoints can be set based on specific conditions. The program will pause only when the condition is met, providing a way to investigate specific scenarios or situations.
+
+Performance Profiling: Breakpoints can be used to measure the time taken for specific sections of code to execute. By setting breakpoints at different points and analyzing the time differences, developers can identify performance bottlenecks and optimize the code.
+
+
+ 
+
