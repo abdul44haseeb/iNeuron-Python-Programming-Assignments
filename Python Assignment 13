@@ -130,3 +130,46 @@ In the example above, the CSV file is written with a carriage return followed by
 
 
 
+6. What function takes a string of JSON data and returns a Python data structure?
+
+The json.loads() function is used to convert a string of JSON data into a Python data structure. Here's an example:
+import json
+
+json_data = '{"name": "John", "age": 30, "city": "New York"}'
+
+# Convert JSON data to Python data structure
+data = json.loads(json_data)
+
+# Access the values in the Python data structure
+name = data['name']
+age = data['age']
+city = data['city']
+
+print(name, age, city)  # Output: John 30 New York
+
+In the example above, the json.loads() function is called with the json_data string as the argument. This function parses the JSON data and converts it into a corresponding Python data structure, which in this case is a dictionary. The values in the dictionary can be accessed using keys, just like any other dictionary in Python.
+
+The json.loads() function is part of the json module in Python, which provides functionality for working with JSON data. It is specifically used for deserializing JSON strings into Python data structures.
+
+
+7. What function takes a Python data structure and returns a string of JSON data?
+
+The json.dumps() function is used to convert a Python data structure into a string of JSON data. Here's an example:
+import json
+
+data = {
+    "name": "John",
+    "age": 30,
+    "city": "New York"
+}
+
+# Convert Python data structure to JSON data
+json_data = json.dumps(data)
+
+print(json_data)
+
+In the example above, the json.dumps() function is called with the data dictionary as the argument. This function serializes the Python data structure into a JSON-formatted string. The resulting json_data variable will contain the JSON representation of the data dictionary.
+
+The json.dumps() function is part of the json module in Python, which provides functionality for working with JSON data. It is specifically used for serializing Python data structures into JSON strings.
+
+
