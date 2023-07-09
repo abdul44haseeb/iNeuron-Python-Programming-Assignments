@@ -1,0 +1,127 @@
+Q1.How many seconds are in an hour? Use the interactive interpreter as a calculator and multiply the number of seconds in a minute (60) by the number of minutes in an hour (also 60).
+
+Solution
+To calculate the number of seconds in an hour, we can multiply the number of seconds in a minute (60) by the number of minutes in an hour (60) using the interactive interpreter as a calculator.
+Following is the code.
+
+seconds_in_minute = 60
+minutes_in_hour = 60
+
+seconds_in_hour = seconds_in_minute * minutes_in_hour
+print(seconds_in_hour)
+
+Output : 3600
+
+So, there are 3600 seconds in an hour.
+
+
+Q2. Assign the result from the previous task (seconds in an hour) to a variable called
+seconds_per_hour.
+
+To assign the result from the previous task (seconds in an hour, which is 3600) to a variable called seconds_per_hour, we can simply use the assignment operator (=) like this:
+
+seconds_per_hour = 3600
+
+Now, the value 3600 is assigned to the variable seconds_per_hour.
+
+Q3. How many seconds do you think there are in a day? Make use of the variables seconds per hour
+and minutes per hour.
+
+
+To calculate the number of seconds in a day, we can utilize the variables seconds_per_hour (which we assigned as 3600) and the number of hours in a day (24).
+
+seconds_per_hour = 3600
+hours_per_day = 24
+
+seconds_per_day = seconds_per_hour * hours_per_day
+print(seconds_per_day)
+
+the output will be: 86400
+
+Therefore, there are 86,400 seconds in a day
+
+
+Q4. Calculate seconds per day again, but this time save the result in a variable called seconds_per_day
+
+To calculate the number of seconds in a day and save the result in a variable called seconds_per_day, we can use the previously assigned values for seconds_per_hour and hours_per_day:
+Q
+seconds_per_day = seconds_per_hour * hours_per_day
+print(seconds_per_day)
+
+This code multiplies the value of seconds_per_hour (3600) by the value of hours_per_day (24) and assigns the result to the variable seconds_per_day. The calculated value of seconds_per_day will be printed to the console.
+
+
+Q5. Divide seconds_per_day by seconds_per_hour. Use floating-point (/) division.
+
+seconds_per_day = 86400
+seconds_per_hour = 3600
+
+result = seconds_per_day / seconds_per_hour
+print(result)
+
+the output will be: 24.0
+The result of dividing seconds_per_day (86400) by seconds_per_hour (3600) is 24.0, indicating that there are 24 hours in a day. The result is a floating-point value because floating-point division (/) was used.
+
+
+Q6. Divide seconds_per_day by seconds_per_hour, using integer (//) division. Did this number agree
+with the floating-point value from the previous question, aside from the final .0?
+
+To divide seconds_per_day by seconds_per_hour using integer division (//), we can modify the code as follows:
+
+seconds_per_day = 86400
+seconds_per_hour = 3600
+
+result = seconds_per_day // seconds_per_hour
+print(result)
+
+ the output will be: 24
+The result of the integer division seconds_per_day // seconds_per_hour is 24, without the decimal point. This value agrees with the floating-point result from the previous question, aside from the final .0. Both calculations confirm that there are 24 hours in a day.
+
+
+Q7. Write a generator, genPrimes, that returns the sequence of prime numbers on successive calls to
+its next() method: 2, 3, 5, 7, 11, ...
+
+To create a generator that generates prime numbers on successive calls to its next() method, we can define a function called genPrimes. 
+
+def genPrimes():
+    # Initial primes
+    primes = [2, 3]
+    
+    yield 2  # Yield the first prime number, 2
+    yield 3  # Yield the second prime number, 3
+    
+    num = 5  # Start checking for primes from 5
+    
+    while True:
+        is_prime = True
+        for prime in primes:
+            if prime * prime > num:
+                break
+            if num % prime == 0:
+                is_prime = False
+                break
+        if is_prime:
+            primes.append(num)
+            yield num
+        num += 2  # Check only odd numbers for primes
+
+# Create an instance of the genPrimes generator
+prime_generator = genPrimes()
+
+# Test the generator by printing the first 10 prime numbers
+for _ in range(10):
+    print(next(prime_generator))
+
+ it will output the first 10 prime numbers:
+2
+3
+5
+7
+11
+13
+17
+19
+23
+29
+The genPrimes generator yields prime numbers on each call to its next() method. It keeps track of the prime numbers found so far in the primes list. It starts with the initial prime numbers 2 and 3. Then, it checks subsequent odd numbers starting from 5 to see if they are prime. If a number is prime, it is added to the primes list and yielded by the generator. The process continues indefinitely, generating prime numbers on successive calls to next().
+
