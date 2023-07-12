@@ -1,0 +1,142 @@
+1. Create a zoo.py file first. Define the hours() function, which prints the string &#39;Open 9-5 daily&#39;.
+Then, use the interactive interpreter to import the zoo module and call its hours() function.
+
+Solution:
+
+def hours():
+    print('Open 9-5 daily')
+print("Before calling hours() function")
+hours()
+print("After calling hours() function")
+
+
+'''Terminal Output
+
+
+C:\Users\Abdul Haseeb A\Documents\Python Assignment 17>python zoo.py
+Before calling hours() function
+Open 9-5 daily
+After calling hours() function
+
+C:\Users\Abdul Haseeb A\Documents\Python Assignment 17>
+
+'''
+
+2. In the interactive interpreter, import the zoo module as menagerie and call its hours() function.
+
+Solution:
+
+# zoo.py
+
+def hours():
+    print('Open 9-5 daily')
+
+import zoo as menagerie
+menagerie.hours()
+
+'''Terminal Output
+
+
+PS C:\Users\Abdul Haseeb A\Documents\Python Assignment 17> & "C:/Program Files/Python311/python.exe" "c:/Users/Abdul Haseeb A/Documents/Python Assignment 17/zoo.py"
+Open 9-5 daily
+Open 9-5 daily
+PS C:\Users\Abdul Haseeb A\Documents\Python Assignment 17> 
+
+'''
+
+
+3. Using the interpreter, explicitly import and call the hours() function from zoo.
+
+Solution:
+
+# zoo.py
+
+def hours():
+    print('Open 9-5 daily')
+
+from zoo import hours
+
+hours()
+
+
+Terminal Output:
+
+PS C:\Users\Abdul Haseeb A\Documents\Python Assignment 17> & "C:/Program Files/Python311/python.exe" "c:/Users/Abdul Haseeb A/Documents/Python Assignment 17/zoo.py"
+Open 9-5 daily
+Open 9-5 daily
+PS C:\Users\Abdul Haseeb A\Documents\Python Assignment 17> 
+
+
+
+4. Import the hours() function as info and call it.
+
+Solution:
+
+# zoo.py
+
+def hours():
+    print('Open 9-5 daily')
+
+from zoo import hours as info
+
+info()
+
+
+Terminal Output:
+
+PS C:\Users\Abdul Haseeb A\Documents\Python Assignment 17> & "C:/Program Files/Python311/python.exe" "c:/Users/Abdul Haseeb A/Documents/Python Assignment 17/zoo.py"
+Open 9-5 daily
+Open 9-5 daily
+PS C:\Users\Abdul Haseeb A\Documents\Python Assignment 17> 
+
+
+5. Create a plain dictionary with the key-value pairs 'a': 1, 'b': 2, and 'c': 3, and print it out.
+
+Solution:
+
+my_dict = {'a': 1, 'b': 2, 'c': 3}
+print(my_dict)
+
+ it will output  : {'a': 1, 'b': 2, 'c': 3}
+
+
+
+6.Make an OrderedDict called fancy from the same pairs listed in 5 and print it. Did it print in the
+same order as plain?
+
+Solution:
+
+from collections import OrderedDict
+
+fancy = OrderedDict([('a', 1), ('b', 2), ('c', 3)])
+print(fancy)
+
+
+it will output : OrderedDict([('a', 1), ('b', 2), ('c', 3)])
+
+In this code, we import the OrderedDict class from the collections module. We then create an OrderedDict called fancy using the same key-value pairs specified in Step 5. The order of the key-value pairs is preserved in the OrderedDict.
+
+
+
+7. Make a default dictionary called dict_of_lists and pass it the argument list. Make the list
+dict_of_lists['a'] and append the value 'something for a' to it in one assignment. Print
+dict_of_lists['a'].
+
+Solution:
+
+from collections import defaultdict
+
+dict_of_lists = defaultdict(list)
+dict_of_lists['a'].append('something for a')
+
+print(dict_of_lists['a'])
+
+
+In this code, we import the defaultdict class from the collections module. We create a defaultdict called dict_of_lists with the default value set as an empty list.
+
+By accessing dict_of_lists['a'] and using the append() method, we append the value 'something for a' to the list associated with the key 'a'.
+
+Finally, we print dict_of_lists['a'], which outputs: ['something for a']
+
+This confirms that the value 'something for a' has been successfully appended to the list associated with the key 'a' in the dict_of_lists.
+
