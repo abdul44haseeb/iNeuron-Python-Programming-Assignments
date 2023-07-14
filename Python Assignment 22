@@ -1,0 +1,120 @@
+1. What is the result of the code, and explain?
+
+ X = 'iNeuron'
+ def func():
+ print(X)
+
+ func()
+
+In the first line, the variable X is assigned the string value 'iNeuron'.
+Then, a function named func is defined. Inside the function, print(X) is called, which prints the value of the variable X.
+Finally, the func() is called, which executes the function and prints the value of X, which is 'iNeuron'.
+So, when the code is executed, it will output 'iNeuron' as the value of X is accessible within the function func.
+
+
+2. What is the result of the code, and explain?
+
+X = 'iNeuron'
+def func():
+    X = 'NI!'
+
+func()
+print(X)
+
+
+
+In the code, the variable X is initially assigned the string value 'iNeuron'.
+Then, a function named func is defined. Inside the function, a local variable X is assigned the string value 'NI!'.
+The func() function is called.
+Finally, outside the function, print(X) is called, which prints the value of the global variable X, which is still 'iNeuron'.
+
+
+
+3. What does this code print, and why?
+
+'iNeuron'
+def func():
+ X = 'NI'
+print(X)
+
+func()
+print(X)
+
+Solution: 
+NameError: name 'X' is not defined
+
+The code tries to print the value of the variable X inside the function func() using the print(X) statement.
+However, the variable X is not defined within the function. It is only defined as a string 'iNeuron' outside the function, which creates a global variable.
+Since the variable X is not defined within the scope of the function, when the print(X) statement is executed, it raises a NameError stating that the name 'X' is not defined.
+Therefore, the code throws an error and does not print any value.
+
+
+
+4. What output does this code produce? Why?
+
+X = 'Neuron'
+def func():
+ global X
+X = 'NI'
+
+func()
+print(X)
+
+
+The output of the code will be: NI
+
+The code defines a variable X with the initial value 'Neuron' outside the function.
+Inside the function func(), the global keyword is used to indicate that the variable X being referenced is the global variable defined outside the function.
+The statement X = 'NI' inside the function assigns the value 'NI' to the global variable X.
+When the function func() is called, it modifies the global variable X to have the value 'NI'.
+After the function call, when print(X) is executed, it prints the current value of the global variable X, which is 'NI'.
+Therefore, the output of the code is 'NI'.
+
+
+
+5. What about this code—what’s the output, and why?
+
+X = 'iNeuron'
+def func():
+ X = &#39;NI&#39;
+def nested():
+ print(X)
+nested()
+
+func()
+X
+
+The output of the code will be: iNeuron
+
+The code defines a variable X with the initial value 'iNeuron' outside the functions.
+The function func() is defined, but it only defines a local variable X with the value 'NI'. This variable is not used or accessed.
+The function nested() is defined and it prints the value of the variable X.
+Inside the nested() function, when print(X) is executed, it prints the value of the global variable X, which is 'iNeuron'.
+The function nested() is then called, which prints 'iNeuron'.
+After that, the function func() is called, but it does not affect the value of the global variable X.
+Finally, when print(X) is executed, it prints the value of the global variable X, which is still 'iNeuron'.
+Therefore, the output of the code is 'iNeuron'.
+
+
+
+6. How about this code: what is its output in Python 3, and explain?
+
+def func():
+    X = 'NI'
+    def nested():
+        nonlocal X
+        X = 'Spam'
+    nested()
+    print(X)
+
+func()
+
+
+The output of this code will be: Spam
+
+The func() function defines a local variable X with the value 'NI'.
+The nested() function is defined within func() and uses the nonlocal keyword to indicate that X refers to the variable in the enclosing scope (func()).
+Inside nested(), the value of X is changed to 'Spam'.
+Finally, when func() is called, it executes the nested() function, which modifies the value of X to 'Spam'.
+The print(X) statement within func() then prints the value of X, which is 'Spam'.
+
