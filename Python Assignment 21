@@ -1,0 +1,219 @@
+1. Add the current date to the text file today.txt as a string.
+
+from datetime import date
+
+# Get the current date
+current_date = date.today()
+
+# Convert the date to a string
+date_string = current_date.strftime("%Y-%m-%d")
+
+# Write the date string to the file
+with open("today.txt", "w") as file:
+    file.write(date_string)
+
+
+2. Read the text file today.txt into the string today_string
+
+from datetime import date
+
+# Get the current date
+current_date = date.today()
+
+# Convert the date to a string
+date_string = current_date.strftime("%Y-%m-%d")
+
+# Write the date string to the file
+with open("today.txt", "w") as file:
+    file.write(date_string)
+
+# Read the contents of the file into a string
+with open("today.txt", "r") as file:
+    today_string = file.read()
+
+# Print the string
+print(today_string)
+
+
+
+3. Parse the date from today_string.
+
+from datetime import date
+
+# Get the current date
+current_date = date.today()
+
+# Convert the date to a string
+date_string = current_date.strftime("%Y-%m-%d")
+
+# Write the date string to the file
+with open("today.txt", "w") as file:
+    file.write(date_string)
+
+# Read the contents of the file into a string
+with open("today.txt", "r") as file:
+    today_string = file.read()
+
+# Print the string
+print(today_string)
+
+from datetime import datetime
+
+# Parse the date from the string
+parsed_date = datetime.strptime(today_string, "%Y-%m-%d")
+
+# Print the parsed date
+print(parsed_date)
+
+Output : 2023-06-22 00:00:00
+
+
+
+4. List the files in your current directory
+import os
+
+# Get the list of files in the current directory
+files = os.listdir()
+
+# Print the list of files
+for file in files:
+    print(file)
+
+
+
+5. Create a list of all of the files in your parent directory (minimum five files should be available).
+
+import os
+
+# Get the path of the parent directory
+parent_directory = os.path.abspath('..')
+
+# Get the list of files in the parent directory
+files = os.listdir(parent_directory)
+
+# Print the list of files
+for file in files:
+    print(file)
+
+
+
+6. Use multiprocessing to create three separate processes. Make each one wait a random number of
+seconds between one and five, print the current time, and then exit.
+
+import multiprocessing
+import time
+import random
+from datetime import datetime
+
+def process_function():
+    wait_time = random.randint(1, 5)  # Generate a random wait time between 1 and 5 seconds
+    time.sleep(wait_time)  # Sleep for the wait time
+    current_time = datetime.now().strftime("%H:%M:%S")  # Get the current time
+    print("Current time:", current_time)  # Print the current time
+
+if __name__ == '__main__':
+    # Create three separate processes
+    processes = []
+    for _ in range(3):
+        p = multiprocessing.Process(target=process_function)
+        processes.append(p)
+        p.start()
+
+    # Wait for all processes to finish
+    for p in processes:
+        p.join()
+
+Output: 
+PS C:\Users\Abdul Haseeb A\Documents\Python Assignment 17> & "C:/Program Files/Python311/python.exe" "c:/Users/Abdul Haseeb A/Documents/Python Assignment 17/zoo.py"
+Current time: 18:28:29
+Current time: 18:28:29
+Current time: 18:28:29
+
+
+
+7. Create a date object of your day of birth.
+
+from datetime import date
+
+# Replace the values with your own day of birth
+year = 1990
+month = 5
+day = 15
+
+# Create a date object for your day of birth
+birth_date = date(year, month, day)
+
+print(birth_date)
+
+Output:
+PS C:\Users\Abdul Haseeb A\Documents\Python Assignment 17> & "C:/Program Files/Python311/python.exe" "c:/Users/Abdul Haseeb A/Documents/Python Assignment 17/zoo.py"
+1990-05-15
+
+
+8. What day of the week was your day of birth?
+
+from datetime import date
+
+# Replace the values with your own day of birth
+year = 1990
+month = 5
+day = 15
+
+# Create a date object for your day of birth
+birth_date = date(year, month, day)
+
+print(birth_date)
+
+from datetime import date
+
+# Assuming you have already created the birth_date object from the previous question
+day_of_week = birth_date.strftime('%A')
+
+print(day_of_week)
+
+Output : 
+
+PS C:\Users\Abdul Haseeb A\Documents\Python Assignment 17> & "C:/Program Files/Python311/python.exe" "c:/Users/Abdul Haseeb A/Documents/Python Assignment 17/zoo.py"
+1990-05-15
+Tuesday
+
+
+9. When will you be (or when were you) 10,000 days old?
+
+from datetime import date
+
+# Replace the values with your own day of birth
+year = 1990
+month = 5
+day = 15
+
+# Create a date object for your day of birth
+birth_date = date(year, month, day)
+
+print(birth_date)
+
+from datetime import date
+
+# Assuming you have already created the birth_date object from the previous question
+day_of_week = birth_date.strftime('%A')
+
+print(day_of_week)
+
+from datetime import date, timedelta
+
+# Assuming you have already created the birth_date object from the previous question
+days_to_add = timedelta(days=10000)
+target_date = birth_date + days_to_add
+
+print(target_date)
+
+
+Output:
+
+PS C:\Users\Abdul Haseeb A\Documents\Python Assignment 17> & "C:/Program Files/Python311/python.exe" "c:/Users/Abdul Haseeb A/Documents/Python Assignment 17/zoo.py"
+1990-05-15
+Tuesday
+2017-09-30
+
+
+
