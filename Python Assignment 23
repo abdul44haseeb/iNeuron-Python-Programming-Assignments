@@ -1,0 +1,110 @@
+1. What is the result of the code, and why?
+
+def func(a, b=6, c=8):
+    print(a, b, c)
+
+func(1, 2)
+
+
+Solution: 
+The func() function is defined with three parameters: a, b, and c.
+In the function definition, b and c have default values of 6 and 8, respectively.
+When the func() function is called with arguments 1 and 2, the value of 1 is assigned to parameter a, and 2 is assigned to parameter b.
+Since no value is provided for parameter c, it takes its default value of 8.
+The print() statement within the function prints the values of a, b, and c, which are 1, 2, and 8 respectively.
+
+
+
+2. What is the result of this code, and why?
+
+def func(a, b, c=5):
+    print(a, b, c)
+
+func(1, c=3, b=2)
+
+
+Solution:
+The func() function is defined with three parameters: a, b, and c.
+Parameter c has a default value of 5.
+When calling the func() function, the argument 1 is assigned to parameter a, 2 is assigned to parameter b, and 3 is assigned to parameter c.
+The order of the keyword arguments (c=3 and b=2) doesn't matter because they are explicitly specified.
+The print() statement within the function prints the values of a, b, and c, which are 1, 2, and 3 respectively.
+
+
+
+3. How about this code: what is its result, and why?
+
+def func(a, *pargs):
+    print(a, pargs)
+
+func(1, 2, 3)
+
+Solution
+The func() function is defined with parameter a and *pargs which allows for arbitrary positional arguments.
+When calling the func() function with arguments 1, 2, 3, the value 1 is assigned to a, and the remaining arguments 2 and 3 are packed into the tuple pargs.
+The print() statement within the function prints the value of a and pargs, which results in 1 being printed for a and (2, 3) being printed for pargs.
+
+
+
+4. What does this code print, and why?
+
+def func(a, **kargs):
+    print(a, kargs)
+
+func(a=1, c=3, b=2)
+
+
+Solution :
+
+Output is : 1 {'c': 3, 'b': 2}
+
+The func() function is defined with parameter a and **kargs which allows for arbitrary keyword arguments.
+When calling the func() function with keyword arguments a=1, c=3, b=2, the value 1 is assigned to a, and the remaining keyword arguments c=3 and b=2 are packed into the dictionary kargs.
+The print() statement within the function prints the value of a and kargs, which results in 1 being printed for a and {'c': 3, 'b': 2} being printed for kargs.
+
+
+
+5. What gets printed by this, and explain?
+def func(a, b, c=8, d=5):
+    print(a, b, c, d)
+
+func(1, *(5, 6))
+
+
+Solution:
+
+Output : 1 5 6 5
+
+The func() function is defined with parameters a, b, c, and d.
+When calling the func() function with arguments 1 and *(5, 6), the value 1 is assigned to a, and the tuple (5, 6) is unpacked and assigned to b and c respectively. Since no value is provided for d, it takes its default value of 5.
+The print() statement within the function prints the values of a, b, c, and d, resulting in 1 5 6 5 being printed.
+
+
+6. what is the result of this, and explain?
+
+def func(a, b, c):
+    a = 2
+    b[0] = 'x'
+    c['a'] = 'y'
+
+l = 1
+m = [1]
+n = {'a': 0}
+
+func(l, m, n)
+print(l, m, n)
+
+
+Solution:
+1 ['x'] {'a': 'y'}
+
+In this code, the func() function takes three parameters: a, b, and c. Inside the function, a is reassigned the value 2, b[0] is modified to 'x', and c['a'] is modified to 'y'.
+
+Before calling the func() function, variables l, m, and n are defined with initial values. When the function is called with these variables as arguments, the function modifies the mutable objects m and n. Since lists and dictionaries are mutable in Python, the changes made inside the function affect the original objects.
+
+Therefore, after calling the func() function, the values of l, m, and n are printed, resulting in the output 1, ['x'], and {'a': 'y'} respectively. The value of l remains unchanged because integers are immutable and are passed by value, while the value of m and n are modified because lists and dictionaries are mutable and are passed by reference.
+
+
+
+
+
