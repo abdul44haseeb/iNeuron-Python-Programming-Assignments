@@ -1,0 +1,145 @@
+1. Write a Python Program to Find LCM?
+
+# Function to find the GCD (Greatest Common Divisor)
+def find_gcd(a, b):
+    while b:
+        a, b = b, a % b
+    return a
+
+# Function to find the LCM (Least Common Multiple)
+def find_lcm(a, b):
+    gcd = find_gcd(a, b)
+    lcm = (a * b) // gcd
+    return lcm
+
+# Take input from the user
+num1 = int(input("Enter the first number: "))
+num2 = int(input("Enter the second number: "))
+
+# Find the LCM
+lcm = find_lcm(num1, num2)
+
+# Print the LCM
+print("The LCM of", num1, "and", num2, "is:", lcm)
+
+
+
+2. Write a Python Program to Find HCF?
+
+# Function to find the HCF (Highest Common Factor)
+def find_hcf(a, b):
+    while b:
+        a, b = b, a % b
+    return a
+
+# Take input from the user
+num1 = int(input("Enter the first number: "))
+num2 = int(input("Enter the second number: "))
+
+# Find the HCF
+hcf = find_hcf(num1, num2)
+
+# Print the HCF
+print("The HCF of", num1, "and", num2, "is:", hcf)
+
+
+
+3. Write a Python Program to Convert Decimal to Binary, Octal and Hexadecimal?
+
+# Function to convert decimal to binary
+def decimal_to_binary(decimal):
+    binary = bin(decimal).replace("0b", "")
+    return binary
+
+# Function to convert decimal to octal
+def decimal_to_octal(decimal):
+    octal = oct(decimal).replace("0o", "")
+    return octal
+
+# Function to convert decimal to hexadecimal
+def decimal_to_hexadecimal(decimal):
+    hexadecimal = hex(decimal).replace("0x", "")
+    return hexadecimal
+
+# Take input from the user
+decimal = int(input("Enter a decimal number: "))
+
+# Convert decimal to binary
+binary = decimal_to_binary(decimal)
+print("Binary representation:", binary)
+
+# Convert decimal to octal
+octal = decimal_to_octal(decimal)
+print("Octal representation:", octal)
+
+# Convert decimal to hexadecimal
+hexadecimal = decimal_to_hexadecimal(decimal)
+print("Hexadecimal representation:", hexadecimal)
+
+
+
+4. Write a Python Program To Find ASCII value of a character?
+
+# Take input from the user
+character = input("Enter a character: ")
+
+# Convert the character to its ASCII value
+ascii_value = ord(character)
+
+# Print the ASCII value
+print("The ASCII value of", character, "is", ascii_value)
+
+
+
+5. Write a Python Program to Make a Simple Calculator with 4 basic mathematical operations?
+
+# Function to perform addition
+def add(a, b):
+    return a + b
+
+# Function to perform subtraction
+def subtract(a, b):
+    return a - b
+
+# Function to perform multiplication
+def multiply(a, b):
+    return a * b
+
+# Function to perform division
+def divide(a, b):
+    return a / b
+
+# Take input from the user
+num1 = float(input("Enter the first number: "))
+num2 = float(input("Enter the second number: "))
+
+# Print the menu options
+print("Select operation:")
+print("1. Addition")
+print("2. Subtraction")
+print("3. Multiplication")
+print("4. Division")
+
+# Take input for the operation choice
+choice = input("Enter your choice (1-4): ")
+
+# Perform the selected operation
+if choice == '1':
+    result = add(num1, num2)
+    operation = '+'
+elif choice == '2':
+    result = subtract(num1, num2)
+    operation = '-'
+elif choice == '3':
+    result = multiply(num1, num2)
+    operation = '*'
+elif choice == '4':
+    result = divide(num1, num2)
+    operation = '/'
+else:
+    print("Invalid choice!")
+    exit()
+
+# Print the result
+print(num1, operation, num2, "=", result)
+
