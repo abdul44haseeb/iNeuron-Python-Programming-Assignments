@@ -1,0 +1,105 @@
+1. Write a Python program to convert kilometers to miles?
+
+def km_to_miles(kilometers):
+    miles = kilometers * 0.62137119
+    return miles
+
+# Take input from the user
+kilometers = float(input("Enter the distance in kilometers: "))
+
+# Convert kilometers to miles
+miles = km_to_miles(kilometers)
+
+# Print the result
+print("Distance in miles:", miles)
+
+
+In this program, we define a function km_to_miles() that takes a distance in kilometers as input and converts it to miles using the conversion factor 0.62137119 (1 kilometer is approximately equal to 0.62137119 miles).
+
+
+
+2. Write a Python program to convert Celsius to Fahrenheit?
+
+def celsius_to_fahrenheit(celsius):
+    fahrenheit = (celsius * 9/5) + 32
+    return fahrenheit
+
+# Take input from the user
+celsius = float(input("Enter the temperature in Celsius: "))
+
+# Convert Celsius to Fahrenheit
+fahrenheit = celsius_to_fahrenheit(celsius)
+
+# Print the result
+print("Temperature in Fahrenheit:", fahrenheit)
+
+
+In this program, we define a function celsius_to_fahrenheit() that takes a temperature in Celsius as input and converts it to Fahrenheit using the formula (Celsius * 9/5) + 32 (where Celsius is the temperature in Celsius).
+
+
+
+3. Write a Python program to display calendar?
+
+import calendar
+
+# Input the year and month
+year = int(input("Enter the year: "))
+month = int(input("Enter the month: "))
+
+# Display the calendar
+print(calendar.month(year, month))
+
+
+
+4. Write a Python program to solve quadratic equation?
+
+import math
+
+def solve_quadratic(a, b, c):
+    # Calculate the discriminant
+    discriminant = b**2 - 4*a*c
+    
+    # Check if the equation has real solutions
+    if discriminant >= 0:
+        # Calculate the solutions
+        x1 = (-b + math.sqrt(discriminant)) / (2*a)
+        x2 = (-b - math.sqrt(discriminant)) / (2*a)
+        
+        # Return the solutions
+        return x1, x2
+    else:
+        # Return None if the equation has no real solutions
+        return None
+
+# Prompt the user to enter the coefficients
+a = float(input("Enter the coefficient a: "))
+b = float(input("Enter the coefficient b: "))
+c = float(input("Enter the coefficient c: "))
+
+# Call the solve_quadratic function
+solutions = solve_quadratic(a, b, c)
+
+# Display the solutions
+if solutions is None:
+    print("The quadratic equation has no real solutions.")
+else:
+    print("The solutions are:", solutions)
+
+
+5. Write a Python program to swap two variables without temp variable?
+
+# Swap function without temp variable
+def swap(a, b):
+    b, a = a, b  # Perform tuple packing and unpacking
+    return a, b
+
+# Test the swap function
+x = 10
+y = 20
+print("Before swap: x =", x, "y =", y)
+
+x, y = swap(x, y)
+print("After swap: x =", x, "y =", y)
+
+In this program, we define a swap function that takes two variables a and b as input. Inside the function, we perform tuple packing and unpacking to swap the values of a and b. By writing b, a = a, b, the value of a is assigned to b and the value of b is assigned to a, effectively swapping their values.
+
