@@ -1,0 +1,132 @@
+1. Write a Python Program to Add Two Matrices?
+
+def add_matrices(matrix1, matrix2):
+    rows = len(matrix1)
+    cols = len(matrix1[0])
+
+    result = [[0] * cols for _ in range(rows)]
+
+    for i in range(rows):
+        for j in range(cols):
+            result[i][j] = matrix1[i][j] + matrix2[i][j]
+
+    return result
+
+# Example usage
+matrix1 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+matrix2 = [[9, 8, 7], [6, 5, 4], [3, 2, 1]]
+
+result = add_matrices(matrix1, matrix2)
+
+# Print the result
+for row in result:
+    print(row)
+
+
+
+2. Write a Python Program to Multiply Two Matrices?
+
+def multiply_matrices(matrix1, matrix2):
+    rows1 = len(matrix1)
+    cols1 = len(matrix1[0])
+    rows2 = len(matrix2)
+    cols2 = len(matrix2[0])
+
+    if cols1 != rows2:
+        raise ValueError("The number of columns in matrix1 should be equal to the number of rows in matrix2.")
+
+    result = [[0] * cols2 for _ in range(rows1)]
+
+    for i in range(rows1):
+        for j in range(cols2):
+            for k in range(cols1):
+                result[i][j] += matrix1[i][k] * matrix2[k][j]
+
+    return result
+
+# Example usage
+matrix1 = [[1, 2, 3], [4, 5, 6]]
+matrix2 = [[7, 8], [9, 10], [11, 12]]
+
+result = multiply_matrices(matrix1, matrix2)
+
+# Print the result
+for row in result:
+    print(row)
+
+
+
+3. Write a Python Program to Transpose a Matrix?
+
+def transpose_matrix(matrix):
+    rows = len(matrix)
+    cols = len(matrix[0])
+
+    # Create a new matrix with swapped rows and columns
+    transposed_matrix = [[0] * rows for _ in range(cols)]
+
+    for i in range(rows):
+        for j in range(cols):
+            transposed_matrix[j][i] = matrix[i][j]
+
+    return transposed_matrix
+
+# Example usage
+matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+
+transposed = transpose_matrix(matrix)
+
+# Print the transposed matrix
+for row in transposed:
+    print(row)
+
+
+
+4. Write a Python Program to Sort Words in Alphabetic Order?
+
+def sort_words(words):
+    # Convert the list of words to lowercase for case-insensitive sorting
+    lowercase_words = [word.lower() for word in words]
+
+    # Sort the lowercase words in alphabetical order
+    sorted_words = sorted(lowercase_words)
+
+    return sorted_words
+
+# Example usage
+words = ['Python', 'programming', 'language', 'is', 'awesome']
+
+sorted_words = sort_words(words)
+
+# Print the sorted words
+for word in sorted_words:
+    print(word)
+
+
+
+5. Write a Python Program to Remove Punctuation From a String?
+
+import string
+
+def remove_punctuation(text):
+    # Create a string of all punctuation marks
+    punctuation = string.punctuation
+
+    # Create a translation table with None values for each punctuation mark
+    translation_table = str.maketrans("", "", punctuation)
+
+    # Remove punctuation marks from the text using the translation table
+    text_without_punctuation = text.translate(translation_table)
+
+    return text_without_punctuation
+
+# Example usage
+text = "Hello, World! This is a sample text."
+
+text_without_punctuation = remove_punctuation(text)
+
+print(text_without_punctuation)
+
+
+
+
