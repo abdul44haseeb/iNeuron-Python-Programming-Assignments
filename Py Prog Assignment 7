@@ -1,0 +1,89 @@
+1. Write a Python Program to find sum of array?
+
+def array_sum(arr):
+    total = 0
+    for num in arr:
+        total += num
+    return total
+
+# Example usage
+my_array = [1, 2, 3, 4, 5]
+sum_of_array = array_sum(my_array)
+print("Sum of the array:", sum_of_array)
+
+
+2. Write a Python Program to find largest element in an array?
+
+def find_largest_element(arr):
+    if not arr:  # Check if the array is empty
+        return None
+    max_element = arr[0]  # Initialize the maximum element with the first element
+    for num in arr:
+        if num > max_element:
+            max_element = num
+    return max_element
+
+# Example usage
+my_array = [5, 2, 9, 1, 7]
+largest_element = find_largest_element(my_array)
+print("Largest element:", largest_element)
+
+
+3. Write a Python Program for array rotation?
+
+def rotate_array(arr, k):
+    n = len(arr)
+    k = k % n  # Handle cases where k is greater than the array length
+    rotated_arr = arr[k:] + arr[:k]
+    return rotated_arr
+
+# Example usage
+my_array = [1, 2, 3, 4, 5]
+rotation_count = 2
+rotated_array = rotate_array(my_array, rotation_count)
+print("Original Array:", my_array)
+print("Rotated Array:", rotated_array)
+
+
+
+4. Write a Python Program to Split the array and add the first part to the end?
+
+def split_and_add(arr, k):
+    n = len(arr)
+    k = k % n  # Handle cases where k is greater than the array length
+    split_arr = arr[:k]
+    remaining_arr = arr[k:]
+    merged_arr = remaining_arr + split_arr
+    return merged_arr
+
+# Example usage
+my_array = [1, 2, 3, 4, 5]
+split_count = 2
+merged_array = split_and_add(my_array, split_count)
+print("Original Array:", my_array)
+print("Merged Array:", merged_array)
+
+
+
+5. Write a Python Program to check if given array is Monotonic?
+
+def is_monotonic(arr):
+    n = len(arr)
+    is_non_increasing = all(arr[i] >= arr[i + 1] for i in range(n - 1))
+    is_non_decreasing = all(arr[i] <= arr[i + 1] for i in range(n - 1))
+    return is_non_increasing or is_non_decreasing
+
+# Example usage
+array1 = [1, 2, 3, 4, 5]
+array2 = [5, 4, 3, 2, 1]
+array3 = [1, 2, 2, 4, 5]
+
+print(is_monotonic(array1))  # True
+print(is_monotonic(array2))  # True
+print(is_monotonic(array3))  # False
+
+
+
+
+
+
