@@ -1,0 +1,197 @@
+Question 1:
+Write a program that calculates and prints the value according to the given formula:
+Q = Square root of [(2 * C * D)/H]
+Following are the fixed values of C and H:
+C is 50. H is 30.
+D is the variable whose values should be input to your program in a comma-separated
+sequence.
+Example
+Let us assume the following comma separated input sequence is given to the program:
+100,150,180
+The output of the program should be:
+18,22,24
+
+Solution:
+
+import math
+
+def calculate_values(D, C=50, H=30):
+    values = D.split(",")
+    results = []
+    for value in values:
+        Q = math.sqrt((2 * C * int(value)) / H)
+        results.append(str(round(Q)))
+    return ",".join(results)
+
+# Example usage
+D = input("Enter comma-separated values for D: ")
+output = calculate_values(D)
+print("The calculated values are:", output)
+
+In this program, the calculate_values() function takes the input values for D as a string, which is then split using the split() method to separate individual values. The function then iterates over each value, calculates the corresponding Q using the given formula, and appends the rounded result to the results list. Finally, the calculated values are joined using commas to form a string and returned.
+
+In the example usage, the user is prompted to enter the comma-separated values for D. The calculate_values() function is called with the input values, and the resulting values are stored in the output variable. The calculated values are then printed to the console.
+
+If we enter the input sequence "100,150,180", the program will output "18,22,24" as expected, based on the given formula and fixed values of C and H.
+
+
+Question 2:
+Write a program which takes 2 digits, X,Y as input and generates a 2-dimensional array. The
+element value in the i-th row and j-th column of the array should be i*j.
+Note: i=0,1.., X-1; j=0,1,¡Y-1.
+Example
+Suppose the following inputs are given to the program:
+3,5
+Then, the output of the program should be:
+[[0, 0, 0, 0, 0], [0, 1, 2, 3, 4], [0, 2, 4, 6, 8]]
+
+Solution:
+
+def generate_2d_array(X, Y):
+    array = []
+    for i in range(X):
+        row = []
+        for j in range(Y):
+            row.append(i * j)
+        array.append(row)
+    return array
+
+# Example usage
+X, Y = input("Enter two digits (comma-separated): ").split(",")
+X = int(X)
+Y = int(Y)
+output = generate_2d_array(X, Y)
+print("The generated 2-dimensional array is:")
+for row in output:
+    print(row)
+
+If we enter the input "3,5", the program will output the following 2-dimensional array: [[0, 0, 0, 0, 0], [0, 1, 2, 3, 4], [0, 2, 4, 6, 8]]
+
+
+
+Question 3:
+Write a program that accepts a comma separated sequence of words as input and prints the
+words in a comma-separated sequence after sorting them alphabetically.
+Suppose the following input is supplied to the program:
+without,hello,bag,world
+Then, the output should be:
+bag,hello,without,world
+
+Solution:
+def sort_words(words):
+    word_list = words.split(",")
+    sorted_words = sorted(word_list)
+    sorted_sequence = ",".join(sorted_words)
+    return sorted_sequence
+
+# Example usage
+input_words = input("Enter a comma-separated sequence of words: ")
+sorted_sequence = sort_words(input_words)
+print("The sorted sequence is:", sorted_sequence)
+
+If we enter the input "without,hello,bag,world", the program will output the following sorted sequence: The sorted sequence is: bag,hello,without,world
+
+
+
+Question 4:
+Write a program that accepts a sequence of whitespace separated words as input and prints
+the words after removing all duplicate words and sorting them alphanumerically.
+Suppose the following input is supplied to the program:
+hello world and practice makes perfect and hello world again
+Then, the output should be:
+again and hello makes perfect practice world
+
+Solution:
+
+def remove_duplicates_and_sort_words(words):
+    word_list = words.split()
+    unique_words = list(set(word_list))
+    sorted_words = sorted(unique_words)
+    sorted_sequence = " ".join(sorted_words)
+    return sorted_sequence
+
+# Example usage
+input_words = input("Enter a sequence of whitespace-separated words: ")
+sorted_sequence = remove_duplicates_and_sort_words(input_words)
+print("The sorted sequence with removed duplicates is:", sorted_sequence)
+
+
+If we enter the input "hello world and practice makes perfect and hello world again", the program will output the following sorted sequence with removed duplicates: The sorted sequence with removed duplicates is: again and hello makes perfect practice world
+
+
+
+Question 5:
+Write a program that accepts a sentence and calculate the number of letters and digits.
+Suppose the following input is supplied to the program:
+hello world! 123
+Then, the output should be:
+LETTERS 10
+
+DIGITS 3
+
+Solution:
+
+def count_letters_digits(sentence):
+    letters = 0
+    digits = 0
+    for char in sentence:
+        if char.isalpha():
+            letters += 1
+        elif char.isdigit():
+            digits += 1
+    return letters, digits
+
+# Example usage
+input_sentence = input("Enter a sentence: ")
+letter_count, digit_count = count_letters_digits(input_sentence)
+print("LETTERS:", letter_count)
+print("DIGITS:", digit_count)
+
+If we enter the input "hello world! 123", the program will output the following:
+LETTERS: 10
+DIGITS: 3
+
+
+Question 6:
+A website requires the users to input username and password to register. Write a program to
+check the validity of password input by users.
+Following are the criteria for checking the password:
+1. At least 1 letter between [a-z]
+2. At least 1 number between [0-9]
+1. At least 1 letter between [A-Z]
+3. At least 1 character from [$#@]
+4. Minimum length of transaction password: 6
+5. Maximum length of transaction password: 12
+Your program should accept a sequence of comma separated passwords and will check them
+according to the above criteria. Passwords that match the criteria are to be printed, each
+separated by a comma.
+Example
+If the following passwords are given as input to the program:
+ABd1234@1,a F1#,2w3E*,2We3345
+Then, the output of the program should be:
+ABd1234@1
+
+Solution:
+
+import re
+
+def check_password_validity(password):
+    # Check if the password matches all the criteria using regular expressions
+    if re.match(r"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$#@]).{6,12}$", password):
+        return True
+    else:
+        return False
+
+# Example usage
+passwords = input("Enter comma-separated passwords: ").split(",")
+valid_passwords = []
+
+for password in passwords:
+    if check_password_validity(password):
+        valid_passwords.append(password)
+
+print(",".join(valid_passwords))
+
+If you enter the input "ABd1234@1,aF1#,2w3E*,2We3345", the program will output the following: ABd1234@1
+
+
