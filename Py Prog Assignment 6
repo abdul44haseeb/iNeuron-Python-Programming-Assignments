@@ -1,0 +1,85 @@
+1. Write a Python Program to Display Fibonacci Sequence Using Recursion?
+
+def fibonacci(n):
+    if n <= 0:
+        return []
+    elif n == 1:
+        return [0]
+    elif n == 2:
+        return [0, 1]
+    else:
+        fib_seq = fibonacci(n - 1)
+        fib_seq.append(fib_seq[-1] + fib_seq[-2])
+        return fib_seq
+
+# Take input from the user
+terms =
+
+
+
+2. Write a Python Program to Find Factorial of Number Using Recursion?
+
+def factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    else:
+        return n * factorial(n - 1)
+
+# Take input from the user
+num = int(input("Enter a number: "))
+
+# Calculate the factorial
+result = factorial(num)
+
+
+
+3. Write a Python Program to calculate your Body Mass Index?
+
+def calculate_bmi(weight, height):
+    bmi = weight / (height ** 2)
+    return bmi
+
+# Take input from the user
+weight = float(input("Enter your weight in kilograms: "))
+height = float(input("Enter your height in meters: "))
+
+# Calculate the BMI
+bmi = calculate_bmi(weight, height)
+
+# Display the result
+print("Your Body Mass Index (BMI) is:", bmi)
+
+
+
+4. Write a Python Program to calculate the natural logarithm of any number?
+
+import math
+
+# Take input from the user
+number = float(input("Enter a number: "))
+
+# Calculate the natural logarithm
+log_value = math.log(number)
+
+# Display the result
+print("The natural logarithm of", number, "is", log_value)
+
+
+
+5. Write a Python Program for cube sum of first n natural numbers?
+
+def cube_sum(n):
+    result = 0
+    for i in range(1, n+1):
+        result += i**3
+    return result
+
+# Take input from the user
+n = int(input("Enter a number: "))
+
+# Calculate the cube sum
+sum_of_cubes = cube_sum(n)
+
+# Display the result
+
+
