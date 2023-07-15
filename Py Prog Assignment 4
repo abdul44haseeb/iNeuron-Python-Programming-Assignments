@@ -1,0 +1,120 @@
+1. Write a Python Program to Find the Factorial of a Number?
+
+def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n - 1)
+
+# Take input from the user
+num = int(input("Enter a number: "))
+
+# Check if the number is negative
+if num < 0:
+    print("Factorial cannot be found for negative numbers.")
+elif num == 0:
+    print("The factorial of 0 is 1.")
+else:
+    result = factorial(num)
+    print("The factorial of", num, "is", result)
+
+
+
+2. Write a Python Program to Display the multiplication Table?
+
+# Take input from the user
+num = int(input("Enter a number: "))
+
+# Print the multiplication table
+print("Multiplication Table of", num)
+for i in range(1, 11):
+    print(num, "x", i, "=", num * i)
+
+
+
+3. Write a Python Program to Print the Fibonacci sequence?
+
+# Take input from the user
+terms = int(input("Enter the number of terms: "))
+
+# Initialize the first two terms of the sequence
+num1 = 0
+num2 = 1
+
+# Print the Fibonacci sequence
+print("Fibonacci Sequence:")
+print(num1, end=" ")
+print(num2, end=" ")
+
+# Generate and print the remaining terms
+for i in range(2, terms):
+    next_num = num1 + num2
+    print(next_num, end=" ")
+    num1 = num2
+    num2 = next_num
+
+
+
+4. Write a Python Program to Check Armstrong Number?
+
+# Take input from the user
+num = int(input("Enter a number: "))
+
+# Initialize variables
+sum = 0
+temp = num
+
+# Calculate the sum of the cubes of each digit
+while temp > 0:
+    digit = temp % 10
+    sum += digit ** 3
+    temp //= 10
+
+# Check if the number is an Armstrong number
+if num == sum:
+    print(num, "is an Armstrong number")
+else:
+    print(num, "is not an Armstrong number")
+
+
+
+5. Write a Python Program to Find Armstrong Number in an Interval?
+
+# Take input from the user
+lower = int(input("Enter the lower range: "))
+upper = int(input("Enter the upper range: "))
+
+print("Armstrong numbers in the given range are:")
+
+# Iterate through each number in the range
+for num in range(lower, upper + 1):
+    # Calculate the number of digits
+    num_digits = len(str(num))
+    # Initialize sum
+    sum = 0
+    temp = num
+
+    # Calculate the sum of cubes of each digit
+    while temp > 0:
+        digit = temp % 10
+        sum += digit ** num_digits
+       
+
+
+
+6. Write a Python Program to Find the Sum of Natural Numbers?
+
+# Take input from the user
+limit = int(input("Enter the limit: "))
+
+# Initialize sum
+sum = 0
+
+# Calculate the sum of natural numbers
+for num in range(1, limit + 1):
+    sum += num
+
+# Print the sum
+print("The sum of natural numbers up to", limit, "is:", sum)
+
+
