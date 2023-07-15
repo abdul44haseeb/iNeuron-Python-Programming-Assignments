@@ -1,0 +1,151 @@
+Question 1:
+Please write a program using generator to print the numbers which can be divisible by 5 and
+7 between 0 and n in comma separated form while n is input by console.
+Example:
+If the following n is given as input to the program:
+100
+Then, the output of the program should be:
+0,35,70
+
+Solution: 
+def divisible_by_5_and_7(n):
+    for i in range(n+1):
+        if i % 5 == 0 and i % 7 == 0:
+            yield i
+
+# Get input from the user
+n = int(input("Enter a number: "))
+
+# Generate and print the comma-separated numbers
+numbers = divisible_by_5_and_7(n)
+output = ",".join(map(str, numbers))
+print(output)
+
+Sample Output:
+Enter a number: 100
+0,35,70
+
+
+
+Question 2:
+Please write a program using generator to print the even numbers between 0 and n in comma
+separated form while n is input by console.
+Example:
+If the following n is given as input to the program:
+10
+Then, the output of the program should be:
+0,2,4,6,8,10
+
+Solution:
+def even_numbers(n):
+    for i in range(n+1):
+        if i % 2 == 0:
+            yield i
+
+# Get input from the user
+n = int(input("Enter a number: "))
+
+# Generate and print the comma-separated even numbers
+numbers = even_numbers(n)
+output = ",".join(map(str, numbers))
+print(output)
+
+
+Sample Output:
+Enter a number: 10
+0,2,4,6,8,10
+
+
+
+Question 3:
+The Fibonacci Sequence is computed based on the following formula:
+f(n)=0 if n=0
+f(n)=1 if n=1
+f(n)=f(n-1)+f(n-2) if n&gt;1
+Please write a program using list comprehension to print the Fibonacci Sequence in comma
+separated form with a given n input by console.
+Example:
+If the following n is given as input to the program:
+7
+
+Then, the output of the program should be:
+0,1,1,2,3,5,8,13
+
+
+Solution:
+# Get input from the user
+n = int(input("Enter a number: "))
+
+# Compute the Fibonacci sequence using list comprehension
+fib_sequence = [0, 1] + [fib_sequence[i-1] + fib_sequence[i-2] for i in range(2, n+1)]
+
+# Print the comma-separated Fibonacci sequence
+output = ",".join(map(str, fib_sequence))
+print(output)
+
+Sample Output:
+Enter a number: 7
+0,1,1,2,3,5,8,13
+
+
+
+Question 4:
+Assuming that we have some email addresses in the "username@companyname.com" format,
+please write program to print the user name of a given email address. Both user names and
+company names are composed of letters only.
+Example:
+If the following email address is given as input to the program:
+john@google.com
+Then, the output of the program should be:
+john
+
+Solution:
+# Get input from the user
+email = input("Enter an email address: ")
+
+# Extract the username from the email address
+username = email.split("@")[0]
+
+# Print the username
+print(username)
+
+Sample Output:
+Enter an email address: john@google.com
+john
+
+
+
+Question 5:
+Define a class named Shape and its subclass Square. The Square class has an init function
+which takes a length as argument. Both classes have a area function which can print the area
+of the shape where Shape&#39;s area is 0 by default.
+
+Solution:
+class Shape:
+    def __init__(self):
+        self.area = 0
+    
+    def calculate_area(self):
+        pass
+
+
+class Square(Shape):
+    def __init__(self, length):
+        super().__init__()
+        self.length = length
+    
+    def calculate_area(self):
+        self.area = self.length ** 2
+
+
+# Create an instance of the Square class
+square = Square(5)
+
+# Calculate the area of the square
+square.calculate_area()
+
+# Print the area of the square
+print("Area:", square.area)
+
+Output:
+Area: 25
