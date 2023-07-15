@@ -1,0 +1,97 @@
+Write a Python program to print 'Hello Python'?
+
+print('Hello Python')
+
+
+2. Write a Python program to do arithmetical operations addition and division.?
+
+def add(x, y):
+    return x + y
+
+def divide(x, y):
+    return x / y
+
+# Testing the functions
+num1 = 10
+num2 = 5
+
+result_addition = add(num1, num2)
+result_division = divide(num1, num2)
+
+print("Addition result:", result_addition)
+print("Division result:", result_division)
+
+
+it will output: 
+Addition result: 15
+Division result: 2.0
+
+
+
+3. Write a Python program to find the area of a triangle?
+
+def calculate_triangle_area(base, height):
+    return 0.5 * base * height
+
+# Input values for base and height
+base = 6
+height = 4
+
+# Calculate the area of the triangle
+area = calculate_triangle_area(base, height)
+
+# Print the result
+print("The area of the triangle is:", area)
+
+
+
+4. Write a Python program to swap two variables?
+
+def swap_variables(a, b):
+    temp = a
+    a = b
+    b = temp
+    return a, b
+
+# Input values for the variables
+x = 5
+y = 10
+
+# Print the initial values
+print("Before swapping:")
+print("x =", x)
+print("y =", y)
+
+# Swap the variables
+x, y = swap_variables(x, y)
+
+# Print the swapped values
+print("After swapping:")
+print("x =", x)
+print("y =", y)
+
+
+ it will output:
+
+Before swapping:
+x = 5
+y = 10
+After swapping:
+x = 10
+y = 5
+
+
+
+5. Write a Python program to generate a random number?
+
+import random
+
+# Generate a random number between 1 and 100
+random_number = random.randint(1, 100)
+
+# Print the random number
+print("Random number:", random_number)
+
+
+When we run this program, it will output a random number between 1 and 100.
+Random number: 57
