@@ -1,0 +1,154 @@
+1. Write a Python program to find words which are greater than given length k?
+
+def find_long_words(words, k):
+    long_words = []
+    for word in words:
+        if len(word) > k:
+            long_words.append(word)
+    return long_words
+
+word_list = ['apple', 'banana', 'orange', 'grapefruit', 'watermelon']
+k = 5
+long_words = find_long_words(word_list, k)
+print("Words longer than", k, "characters:", long_words)
+
+
+Output:
+Words longer than 5 characters: ['banana', 'orange', 'grapefruit', 'watermelon']
+
+
+
+2. Write a Python program for removing i-th character from a string?
+
+def remove_character(string, i):
+    if i < 0 or i >= len(string):
+        return string
+    return string[:i] + string[i+1:]
+
+input_string = "Hello, World!"
+index_to_remove = 7
+new_string = remove_character(input_string, index_to_remove)
+print("Original string:", input_string)
+print("Modified string:", new_string)
+
+
+Output:
+Original string: Hello, World!
+Modified string: Hello Wrld!
+
+
+
+3. Write a Python program to split and join a string?
+
+def split_and_join(string):
+    # Split the string into a list of words
+    words = string.split()
+
+    # Join the words using a hyphen as separator
+    new_string = '-'.join(words)
+
+    return new_string
+
+input_string = "Hello, world! This is a sample string."
+split_string = split_and_join(input_string)
+print("Original string:", input_string)
+print("Modified string:", split_string)
+
+
+Output:
+
+Original string: Hello, world! This is a sample string.
+Modified string: Hello,-world!-This-is-a-sample-string.
+
+
+
+4. Write a Python to check if a given string is binary string or not?
+
+import re
+
+def is_binary_string(string):
+    pattern = "^[01]+$"  # Regex pattern to match binary string
+    return re.match(pattern, string) is not None
+
+input_string = "101010"
+is_binary = is_binary_string(input_string)
+print("Input string:", input_string)
+print("Is binary string?", is_binary)
+
+
+Output:
+Input string: 101010
+Is binary string? True
+
+
+
+5. Write a Python program to find uncommon words from two Strings?
+
+def find_uncommon_words(str1, str2):
+    words1 = set(str1.split())  # Split first string into words and convert to set
+    words2 = set(str2.split())  # Split second string into words and convert to set
+
+    uncommon_words = words1.symmetric_difference(words2)  # Find uncommon words using symmetric difference
+
+    return uncommon_words
+
+string1 = "Hello world"
+string2 = "world Python"
+
+uncommon = find_uncommon_words(string1, string2)
+print("Uncommon words:", uncommon)
+
+
+Output:
+
+Uncommon words: {'Hello', 'Python'}
+
+
+
+6. Write a Python to find all duplicate characters in string?
+
+def find_duplicate_characters(string):
+    duplicate_chars = []
+    seen_chars = set()
+
+    for char in string:
+        if char in seen_chars and char not in duplicate_chars:
+            duplicate_chars.append(char)
+        else:
+            seen_chars.add(char)
+
+    return duplicate_chars
+
+input_string = "Hello World"
+
+duplicates = find_duplicate_characters(input_string)
+print("Duplicate characters:", duplicates)
+
+
+Output:
+Duplicate characters: ['l', 'o']
+
+
+
+7. Write a Python Program to check if a string contains any special character?
+
+import re
+
+def contains_special_character(string):
+    special_characters = re.compile(r'[@_!#$%^&*()<>?/\|}{~:]')
+
+    if special_characters.search(string):
+        return True
+    else:
+        return False
+
+input_string = "Hello World!"
+has_special_char = contains_special_character(input_string)
+print("String contains special character:", has_special_char)
+
+
+Output:
+
+String contains special character: True
+
+
