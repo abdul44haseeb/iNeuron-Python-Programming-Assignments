@@ -1,0 +1,89 @@
+Q1. Describe three applications for exception processing.
+
+Exception processing in Python is a powerful mechanism for handling and managing unexpected or exceptional situations that may occur during the execution of a program. Here are three common applications for exception processing:
+
+Error Handling: Exceptions are commonly used to handle errors and exceptional conditions in a program. By using try-except blocks, you can catch and handle specific types of exceptions that may occur during the execution of code. This allows you to gracefully handle errors, provide error messages, and take appropriate actions to recover from exceptional situations. For example, handling exceptions when performing file operations, network operations, or database interactions can help prevent crashes and allow for proper error reporting.
+
+Input Validation: Exceptions can be used to validate user input and handle invalid or unexpected input gracefully. When receiving user input, you can use try-except blocks to catch specific exceptions that may occur when parsing or converting input data. This allows you to provide meaningful feedback to the user and prompt for correct input. For example, catching a ValueError when converting a user-entered string to an integer can prevent the program from crashing and allow for re-prompting the user for valid input.
+
+Resource Management: Exceptions are useful for managing system resources such as files, network connections, or database connections. By utilizing try-finally or try-except-finally blocks, you can ensure that resources are properly released or cleaned up, even if exceptions occur. This helps prevent resource leaks and guarantees the proper handling of resources. For example, when working with files, you can open the file in a try block, perform operations, and then close the file in the finally block to ensure it is always closed, regardless of exceptions.
+
+
+
+Q2. What happens if you don't do something extra to treat an exception?
+
+If you don't handle or treat an exception in your code, it will result in an unhandled exception, which can cause your program to terminate abruptly. When an exception occurs and is not caught or handled, the default behavior is for the program to halt and display an error message traceback, indicating the type of exception and the line of code where it occurred.
+
+The traceback provides information about the exception, such as the exception type, the specific error message, and the sequence of function calls that led to the exception. This traceback is useful for debugging purposes as it helps identify the cause of the exception and the location in the code where it occurred.
+
+When an unhandled exception occurs, the program execution is interrupted, and any code that was supposed to be executed after the point of the exception will not be executed. This can lead to unexpected behavior, incomplete operations, or incorrect program states.
+
+To handle exceptions and prevent them from causing an unhandled exception, you can use try-except blocks to catch and handle specific exceptions that may occur in your code. By handling exceptions, you can gracefully handle errors, provide appropriate error messages or alternative actions, and allow the program to continue executing without terminating abruptly.
+
+
+
+Q3. What are your options for recovering from an exception in your script?
+
+When an exception occurs in your script, you have several options for recovering from it. These options include:
+
+Handling the exception with a try-except block: You can use a try-except block to catch specific exceptions and execute alternative code or error-handling routines. By handling the exception, you can recover from the error and continue executing the rest of the script. The except block allows you to define the actions to be taken when a specific exception occurs.
+
+Raising a different exception: In some cases, you may want to catch an exception, perform some recovery steps, and then raise a different exception to indicate a different error condition or provide more specific information about the error. This can be done using the raise statement within the except block.
+
+Logging the exception: Instead of recovering from the exception directly, you can log the exception details using a logging library. This allows you to record information about the exception, including the error message, traceback, and any additional context. Logging exceptions can be helpful for debugging purposes and for monitoring the behavior of your script.
+
+Graceful termination: Depending on the severity of the exception and the state of your program, it may be appropriate to gracefully terminate the script when an exception occurs. This can be done by allowing the exception to propagate up the call stack until it is caught at a higher level or by using the sys.exit() function to exit the script with a specific exit code.
+
+The choice of recovery option depends on the specific requirements of your script and the nature of the exception. It's important to handle exceptions in a way that maintains the stability and integrity of your program and provides appropriate feedback to the user or logging system.
+
+
+
+
+Q4. Describe two methods for triggering exceptions in your script.
+
+In Python, there are several methods for triggering exceptions in your script. Here are two common methods:
+
+Using the raise statement: You can manually raise an exception in your script using the raise statement. This allows you to explicitly indicate that a certain condition or error has occurred. The raise statement is followed by an exception type or an instance of an exception class. For example:
+raise ValueError("Invalid input")
+
+This raises a ValueError exception with the specified error message.
+
+Invoking built-in functions that raise exceptions: There are built-in functions in Python that can raise exceptions under certain conditions. For example, the open() function is used to open files, and if the specified file does not exist or cannot be opened, it raises a FileNotFoundError. Similarly, the int() function converts a string to an integer, and if the string cannot be converted, it raises a ValueError. By invoking these functions with appropriate arguments or inputs, you can trigger the respective exceptions. For example:
+open("nonexistent_file.txt")  # Raises FileNotFoundError
+int("abc")  # Raises ValueError
+
+
+
+Q5. Identify two methods for specifying actions to be executed at termination time, regardless of
+whether or not an exception exists.
+
+
+In Python, you can specify actions to be executed at termination time, regardless of whether or not an exception exists, using the following methods:
+
+Using the finally block: The finally block is a construct in a try-except-finally statement that allows you to specify code that will be executed regardless of whether an exception is raised or not. The code within the finally block is executed after the try block and any associated except blocks, regardless of whether an exception occurs or not. This is useful for performing cleanup operations or releasing resources. For example:
+try:
+    # Code that may raise an exception
+    ...
+except Exception:
+    # Exception handling code
+    ...
+finally:
+    # Code to be executed regardless of exceptions
+    ...
+The code within the finally block will always be executed, even if an exception is raised and caught by an except block.
+
+Using the atexit module: The atexit module provides a way to register functions that are automatically called when the Python interpreter terminates, either normally or due to an unhandled exception. You can use the atexit.register() function to register a function that will be executed at termination time. For example:
+import atexit
+
+def cleanup():
+    # Code to be executed at termination
+    ...
+
+atexit.register(cleanup)
+
+The cleanup() function will be automatically called when the script exits, allowing you to perform any necessary cleanup tasks.
+
+Both of these methods ensure that certain actions are executed at termination time, regardless of whether an exception is raised or not, providing a way to handle cleanup operations or perform specific actions before the script terminates.
+
+
+
