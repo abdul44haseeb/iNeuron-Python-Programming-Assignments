@@ -1,0 +1,62 @@
+Q1. What are the two latest user-defined exception constraints in Python 3.X?
+
+In Python 3.x, the two latest user-defined exception constraints are as follows:
+
+Exception as a Base Class: In Python 3.x, it is recommended to derive custom exceptions from the base class Exception rather than the old-style BaseException class. This constraint helps maintain consistency and adhere to best practices in exception handling. By deriving from Exception, user-defined exceptions can be easily caught and handled separately from system exceptions.
+
+Exception as a Catch-All Clause: In Python 3.x, it is considered best practice to catch exceptions using the Exception base class as a catch-all clause, rather than catching all exceptions using the BaseException class. This constraint allows for more specific exception handling and avoids catching system-level exceptions like SystemExit, KeyboardInterrupt, and GeneratorExit, which should not be caught by general exception handling code.
+
+
+
+Q2. How are class-based exceptions that have been raised matched to handlers?
+
+In Python, class-based exceptions that have been raised are matched to handlers based on their class hierarchy and inheritance relationships. When an exception is raised, Python checks the exception's class and searches for an appropriate exception handler that can handle that type of exception.
+
+Python traverses through the exception's class hierarchy, starting from the most specific class and moving towards more general classes, until it finds a matching exception handler. The search continues until it either finds a matching handler or reaches the base Exception class.
+
+If a matching handler is found, the corresponding code block associated with that handler is executed to handle the exception. If no matching handler is found, the exception is propagated up the call stack until an appropriate handler is found or the program terminates with an unhandled exception.
+
+This matching process allows for selective handling of specific types of exceptions and provides flexibility in designing exception handling strategies based on the specific needs of the program.
+
+
+
+Q3. Describe two methods for attaching context information to exception artefacts.
+
+
+Exception Context Variables: You can attach context information to exception artifacts by defining custom exception classes that include additional attributes or context variables. These context variables can store relevant information about the state or conditions that led to the exception. For example, you can define an exception class with attributes like filename, line_number, or timestamp to provide additional context information when an exception occurs. By accessing these attributes in the exception handler, you can obtain more detailed information about the exception and its context.
+
+Exception Chaining: Python allows you to chain exceptions using the raise statement with the from keyword. This allows you to attach the original exception as the cause of a new exception. By chaining exceptions, you can preserve the context and traceback information of the original exception while raising a new exception with additional information. This helps in providing a clear and comprehensive picture of the exception's origin and the chain of events leading to the exception. Exception chaining is particularly useful when handling and propagating exceptions across different layers of an application or when wrapping exceptions to provide higher-level context.
+
+
+
+Q4. Describe two methods for specifying the text of an exception object&#39;s error message.
+
+Custom Exception Classes: One method for specifying the text of an exception object's error message is to define a custom exception class and override its __str__ method. By customizing the __str__ method, you can provide a specific error message that will be displayed when the exception is raised. For example:
+class MyException(Exception):
+    def __str__(self):
+        return "This is a custom error message."
+
+When an instance of MyException is raised, the error message specified in the __str__ method will be used.
+
+Formatting Exception Messages: Another method is to use string formatting to specify the error message of an exception object. You can include placeholders in the error message string and use the format method to substitute values into those placeholders. This allows you to dynamically generate error messages with specific information. For example:
+name = "John"
+age = 25
+raise ValueError("Invalid age for {}: {}".format(name, age))
+
+In this example, the error message is constructed using the format method to include the name and age values. The resulting error message will provide specific information about the invalid age for a particular name.
+
+
+
+Q5. Why do you no longer use string-based exceptions?
+
+
+String-based exceptions are no longer used in Python because they have several limitations and drawbacks:
+
+Lack of Type Information: String-based exceptions do not provide any type information. It becomes difficult to differentiate between different types of exceptions, as they are all represented by strings. This can lead to ambiguity and make it challenging to handle exceptions effectively.
+
+Inheritance and Hierarchy: With string-based exceptions, there is no way to establish a hierarchy or inheritance relationship between different types of exceptions. In contrast, using class-based exceptions allows for creating a structured exception hierarchy, enabling better organization and categorization of exceptions.
+
+Limited Error Information: String-based exceptions often provide limited or insufficient error information. They typically only convey a brief error message without any additional details such as stack trace, error code, or other contextual information. This makes it harder to debug and diagnose the cause of an exception.
+
+Compatibility and Standardization: Class-based exceptions provide a standardized and compatible way of handling exceptions across different libraries and modules. By using class-based exceptions, Python developers can rely on a consistent exception handling mechanism and easily integrate with existing exception handling practices.
+
