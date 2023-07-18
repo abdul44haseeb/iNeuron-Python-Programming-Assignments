@@ -1,0 +1,67 @@
+1. What are the new features added in Python 3.8 version?
+
+Python 3.8 introduced several new features and improvements. Some of the key features added in Python 3.8 include:
+
+Assignment Expressions (Walrus Operator): This feature introduced the := operator, known as the walrus operator, which allows you to assign values to variables within expressions. It enables assignment and use of a value in a single line, improving code readability and reducing redundancy.
+
+Positional-only Parameters: Python 3.8 added support for defining positional-only parameters in function signatures using the "/" separator. This allows you to specify that certain parameters can only be passed positionally and not as keyword arguments, providing more control over how functions are called.
+
+f-strings = Formatted String Literals: Python 3.8 introduced a new syntax for f-strings, allowing you to use the "=" sign to specify a formatted value and align it within the field width. This provides more flexibility and control over string formatting.
+
+New Syntax Warnings: Python 3.8 introduced new warnings for certain syntax patterns that are likely to cause errors or unintended behavior. These warnings help in identifying potential issues and improving code quality.
+
+Performance Improvements: Python 3.8 introduced various performance optimizations, including faster dictionary lookups, optimized built-in functions, and improved performance for the math module. These improvements enhance the overall execution speed of Python code.
+
+Improved Typing Support: Python 3.8 introduced enhancements to the typing module, including Literal types for specifying literal values in type hints, TypedDict for defining dictionaries with specific key-value types, and more precise type checking.
+
+Other Improvements: Python 3.8 included several other smaller improvements and additions, such as the math.prod() function for calculating the product of a sequence, the ability to use the "continue" statement in the finally block of a try-except-finally statement,
+
+
+
+What is monkey patching in Python?
+
+Monkey patching in Python refers to the practice of dynamically modifying or extending existing code at runtime, typically by modifying classes, functions, or modules. It allows you to add, modify, or replace functionality in existing code without changing the original source code.
+
+The term "monkey patching" comes from the idea of a monkey messing with the internals of something. It can be a powerful technique in certain scenarios, but it should be used with caution as it can make code harder to understand and maintain.
+
+With monkey patching, we can:
+
+Add new methods or attributes to an existing class.
+Modify the behavior of existing methods or functions.
+Replace existing functions or methods with custom implementations.
+
+
+What is the difference between a shallow copy and deep copy?
+
+The difference between shallow copy and deep copy lies in how they create copies of objects containing other objects.
+
+Shallow Copy:
+A shallow copy creates a new object that references the original object's data. In other words, it creates a new object but still shares the internal references to the data objects. If the original object contains mutable objects, changes made to those mutable objects will be reflected in both the original object and the shallow copy. In Python, you can use the copy module's copy() function or the object's copy() method to perform a shallow copy.
+
+Deep Copy:
+A deep copy creates a new object and recursively copies all the objects it references. It means that it creates completely independent copies of the original object and all its nested objects. Changes made to the mutable objects in the deep copy will not affect the original object or other copies. In Python, you can use the copy module's deepcopy() function or the object's deepcopy() method to perform a deep copy.
+
+
+What is the maximum possible length of an identifier?
+
+In Python, the maximum possible length of an identifier is not explicitly defined. However, there is a practical limit imposed by the system, which is typically determined by the maximum length of a string or the maximum memory allocation size of the system.
+
+In Python 3, the maximum length of a string can be as large as the available memory allows. It means that the length of an identifier is essentially limited by the memory capacity of the system. However, it is important to note that excessively long identifiers can make the code less readable and harder to maintain.
+
+In practice, it is recommended to keep identifiers reasonably short and meaningful to improve code readability and maintainability. The Python style guide, PEP 8, suggests keeping identifiers to a maximum of 79 characters in order to fit within the recommended line length limit.
+
+
+
+What is generator comprehension?
+
+Generator comprehension, also known as generator expression, is a concise way to create a generator object in Python. It is similar to list comprehension, but instead of creating a list, it creates an iterator object that generates values on-the-fly, as they are needed.
+
+Generator comprehensions are enclosed in parentheses rather than square brackets, and they follow a similar syntax to list comprehensions. Here's the general syntax:
+
+(expression for item in iterable if condition)
+
+The expression is evaluated for each item in the iterable, and the generator object yields the values one at a time as they are requested. The condition is optional and can be used to filter the values that are included in the generator.
+
+The advantage of using generator comprehensions is that they are memory-efficient since they generate values on-the-fly rather than creating a whole list in memory. They are useful when dealing with large data sets or when you only need to iterate over the values once.
+
+
