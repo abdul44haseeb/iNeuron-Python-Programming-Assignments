@@ -1,0 +1,101 @@
+Q1. Can you create a programme or function that employs both positive and negative indexing? Is
+there any repercussion if you do so?
+
+Yes, we can create a program or function that employs both positive and negative indexing in Python. Positive indexing starts from 0 and counts from the beginning of the sequence, while negative indexing starts from -1 and counts from the end of the sequence.
+def get_character(string, index):
+    if index >= -len(string) and index < len(string):
+        return string[index]
+    else:
+        return None
+
+# Example usage
+text = "Hello, World!"
+print(get_character(text, 0))      # Output: H (positive index)
+print(get_character(text, -1))     # Output: ! (negative index)
+print(get_character(text, 5))      # Output: , (positive index)
+print(get_character(text, -7))     # Output: W (negative index)
+
+There is no repercussion if we use both positive and negative indexing together. It's a feature of Python's indexing system that allows us to access elements from both ends of a sequence. Just make sure to handle index values within the valid range to avoid any IndexError exceptions.
+
+
+
+Q2. What is the most effective way of starting with 1,000 elements in a Python list? Assume that all
+elements should be set to the same value.
+
+The most effective way to create a Python list with 1,000 elements, all set to the same value, is to use a list comprehension along with the desired value.
+value = 0  # The value to be assigned to each element
+my_list = [value] * 1000
+
+# Verify the list
+print(my_list[:10])  # Output: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+print(len(my_list))  # Output: 1000
+
+By using this method, we can create a list with a large number of elements efficiently and in a concise manner.
+
+
+
+Q3. How do you slice a list to get any other part while missing the rest? (For example, suppose you
+want to make a new list with the elements first, third, fifth, seventh, and so on.)
+
+
+To slice a list and get specific elements while skipping the rest, we can use slice notation with a step value. The step value determines the number of elements to skip between each selected element.
+my_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+new_list = my_list[::2]
+
+print(new_list)  # Output: [1, 3, 5, 7, 9]
+
+
+
+Q4. Explain the distinctions between indexing and slicing.
+
+Indexing and slicing are both ways to access specific elements or portions of a sequence like a list in Python, but they differ in how they specify the elements to be accessed.
+
+Indexing:
+
+Indexing refers to accessing a single element of a sequence by its position.
+It uses square brackets [ ] with the index value inside to indicate the desired element.
+Indexing is zero-based, meaning the index starts from 0 for the first element, 1 for the second element, and so on.
+Indexing returns the specific element at the given index.
+Example: my_list[2] retrieves the element at index 2 of my_list.
+Slicing:
+
+Slicing refers to accessing a portion of a sequence by specifying a range of indices.
+It uses square brackets [ ] with the start and end indices separated by a colon : inside to define the slice.
+Slicing is inclusive of the start index and exclusive of the end index, meaning the resulting slice includes elements up to, but not including, the end index.
+Slicing returns a new list containing the selected elements within the specified range.
+Example: my_list[1:4] retrieves a new list containing elements from index 1 to index 3 (excluding index 4) of my_list.
+
+
+
+Q5. What happens if one of the slicing expression's indexes is out of range?
+
+If one of the slicing expression's indexes is out of range, i.e., it is greater than or equal to the length of the sequence being sliced, Python will handle it gracefully without raising an error. Instead, it will adjust the index to the nearest valid value.
+
+
+
+Q6. If you pass a list to a function, and if you want the function to be able to change the values of the
+list—so that the list is different after the function returns—what action should you avoid?
+
+If we want a function to be able to change the values of a list passed as an argument, we should avoid creating a new list object within the function. Instead, we should directly modify the elements of the existing list.
+
+Specifically, we should avoid reassigning the list parameter to a new list object, as this will disconnect the parameter from the original list object. Any modifications made to the reassigned parameter will not affect the original list.
+
+
+
+Q7. What is the concept of an unbalanced matrix?
+
+In general, an unbalanced matrix refers to a matrix where the number of elements in each row is not equal. It can be represented using a nested list structure in Python, where each inner list represents a row of the matrix.
+
+
+
+Q8. Why is it necessary to use either list comprehension or a loop to create arbitrarily large matrices?
+
+By using list comprehension or a loop, you can create matrices of any size without having to write individual statements for each element. This flexibility is particularly important when dealing with large or dynamically changing matrices, as it allows for efficient memory allocation and element generation.
+
+
+
+
+
+
+
