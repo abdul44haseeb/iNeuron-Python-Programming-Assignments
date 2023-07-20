@@ -1,0 +1,152 @@
+Q1. Explain the difference between greedy and non-greedy syntax with visual terms in as few words
+as possible. What is the bare minimum effort required to transform a greedy pattern into a non-greedy
+one? What characters or characters can you introduce or change?
+
+Greedy syntax in regular expressions matches as much as possible, while non-greedy (also called lazy) syntax matches as little as possible. To transform a greedy pattern into a non-greedy one, you simply add a '?' after the quantifier (e.g., *?, +?, ??). This makes the quantifier non-greedy, causing it to match the minimum possible instead of the maximum.
+
+
+Q2. When exactly does greedy versus non-greedy make a difference?  What if you&#39;re looking for a
+non-greedy match but the only one available is greedy?
+
+Greedy versus non-greedy makes a difference when there are multiple possible matches in a string. Greedy will try to match as much as possible, while non-greedy will try to match as little as possible. If you're looking for a non-greedy match, but the only available match is greedy, then the non-greedy match will still be attempted. However, it may result in a larger portion of the string being matched than desired.
+
+
+
+Q3. In a simple match of a string, which looks only for one match and does not do any replacement, is
+the use of a nontagged group likely to make any practical difference?
+
+In a simple match of a string without any replacement, the use of a non-capturing group (a non-tagged group) is not likely to make any practical difference. Non-capturing groups are used to group elements together for applying quantifiers or other regex operators, but they do not capture or store the matched text. Since there is no need to retrieve the matched text later, using a non-capturing group is generally optional in this scenario.
+
+
+Q4. Describe a scenario in which using a nontagged category would have a significant impact on the
+program's outcomes.
+
+A scenario where using a non-capturing group (nontagged category) would have a significant impact on the program's outcomes is when we want to apply a regex operator to a specific group of elements without capturing that group for later use.
+
+Using a capturing group (tagged category):
+import re
+
+pattern = r"(\d{3})-\d{3}-\d{4}"
+text = "Phone numbers are 123-456-7890 and 987-654-3210"
+matches = re.findall(pattern, text)
+
+print(matches)  # Output: ['123', '987']
+
+In this case, the capturing group (\d{3}) captures and returns the area codes in the phone numbers.
+
+Using a non-capturing group (nontagged category):
+import re
+
+pattern = r"(?:\d{3})-\d{3}-\d{4}"
+text = "Phone numbers are 123-456-7890 and 987-654-3210"
+matches = re.findall(pattern, text)
+
+print(matches)  # Output: ['123', '987']
+
+
+Here, we use a non-capturing group (?:\d{3}) to apply the quantifier \d{3} (matching three digits) to the area code portion of the phone numbers. The non-capturing group doesn't affect the output of re.findall, but it allows us to apply the quantifier specifically to the area code without capturing it in the results.
+
+In this scenario, using a non-capturing group helps to apply the regex operator to the desired portion of the text without impacting the final output. It improves code readability and avoids unnecessary memory usage for capturing groups when their results are not needed later in the program.
+
+
+Q5. Unlike a normal regex pattern, a look-ahead condition does not consume the characters it
+examines. Describe a situation in which this could make a difference in the results of your
+programme.
+
+
+A look-ahead condition in regular expressions allows you to specify a pattern that must be followed by another pattern, without actually consuming the characters that match the first pattern. This feature can make a difference in the results of a program when you need to match certain patterns based on specific conditions without including those conditions in the final match.
+
+Let's consider an example where we want to match all occurrences of the word "apple" that are followed by the word "pie" but without including "pie" in the final match:
+import re
+
+text = "I love apple pie and apple cider."
+pattern = r"apple(?=\s+pie)"
+
+matches = re.findall(pattern, text)
+print(matches)  # Output: ['apple']
+
+In this example, we use the look-ahead condition (?=\s+pie) to ensure that the word "apple" is followed by one or more whitespace characters and then the word "pie." However, the look-ahead condition does not consume the characters that match \s+pie, meaning that "pie" is not included in the final match. As a result, only the occurrences of "apple" that are followed by "pie" are returned in the matches list.
+
+
+Q6. In standard expressions, what is the difference between positive look-ahead and negative look-
+ahead?
+
+In regular expressions, look-ahead assertions are used to specify conditions that must be satisfied after a certain pattern. The main difference between positive look-ahead and negative look-ahead lies in the outcome of the assertion:
+
+Positive Look-Ahead (x(?=y)): It specifies that the pattern x must be followed by y for a match to occur. However, the characters that match y are not included in the final match.
+Example:
+
+import re
+
+text = "apple pie and apple cider are delicious."
+pattern = r"apple(?=\s+pie)"
+
+matches = re.findall(pattern, text)
+print(matches)  # Output: ['apple']
+
+In this example, the positive look-ahead (?=\s+pie) asserts that "apple" must be followed by one or more whitespace characters and then the word "pie" for a match to be found.
+
+Negative Look-Ahead (x(?!y)): It specifies that the pattern x must not be followed by y for a match to occur. The characters that match y are not included in the final match.
+Example:
+import re
+
+text = "apple cider and apple pie are delicious."
+pattern = r"apple(?! pie)"
+
+matches = re.findall(pattern, text)
+print(matches)  # Output: ['apple']
+
+In this example, the negative look-ahead (?! pie) asserts that "apple" must not be followed by the word "pie" for a match to be found.
+
+
+Q7. What is the benefit of referring to groups by name rather than by number in a standard
+expression?
+
+Referring to groups by name in a standard expression (using named capture groups) has several benefits compared to referring to groups by number:
+
+Readability: Named capture groups make the regular expression code more readable and self-explanatory. Instead of relying on numerical indexes to identify groups, meaningful names provide context to the captured content.
+
+Flexibility: When the regular expression pattern is modified, named capture groups make it easier to understand the intent of each group, even if the order or number of groups changes.
+
+Maintainability: Named capture groups are less error-prone than using numerical indexes, especially when the regular expression pattern evolves over time. Renaming or rearranging capture groups does not require updating the reference in the code, improving maintainability.
+
+Documentation: Named capture groups act as documentation for the regular expression, helping others (and even the original developer) to understand the purpose of each captured group.
+
+
+Q8. Can you identify repeated items within a target string using named groups, as in &quot;The cow
+jumped over the moon'?
+
+Yes, you can identify repeated items within a target string using named groups and regular expressions. One common way to achieve this is by using backreferences to refer to the named groups within the regular expression pattern.
+
+For example, let's say you want to find repeated words in a sentence using named groups. You can use the following regular expression pattern with a backreference:
+import re
+
+text = "The cow jumped over the moon"
+pattern = r"\b(?P<word>\w+)\b.*\b(?P=word)\b"
+
+matches = re.findall(pattern, text)
+print(matches)  # Output: ['the']
+
+
+In this example, the pattern \b(?P<word>\w+)\b.*\b(?P=word)\b looks for a word boundary \b, captures a word into the named group word with (?P<word>\w+), matches any characters in between .*, and then checks for the same word using the backreference (?P=word). The backreference ensures that the word captured by the named group word is repeated elsewhere in the text.
+
+
+
+Q9. When parsing a string, what is at least one thing that the Scanner interface does for you that the
+re.findall feature does not?
+
+The Scanner interface in Python provides a way to tokenize and parse strings using a predefined set of regular expressions called patterns. It is part of the re.Scanner module in Python. The Scanner interface allows you to define rules for matching specific patterns and then use those rules to tokenize the input string.
+
+One thing that the Scanner interface does for you that the re.findall feature does not is that it allows you to tokenize the string and extract individual tokens, rather than just finding all occurrences of a pattern. With the Scanner interface, you can define multiple patterns and associate each pattern with a specific token type. When you tokenize the input string, the Scanner will match the input against the defined patterns and return the corresponding token type for each matched pattern.
+
+
+
+Q10. Does a scanner object have to be named scanner?
+
+No, a scanner object does not have to be named "scanner." The name of the object is just a variable name chosen by the programmer, and it can be any valid identifier in Python
+
+
+
+
+
+
