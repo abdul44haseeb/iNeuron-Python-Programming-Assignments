@@ -1,0 +1,154 @@
+Q1. Define the relationship between a class and its instances. Is it a one-to-one or a one-to-many
+partnership, for example?
+
+The relationship between a class and its instances is a one-to-many partnership. A class is a blueprint or a template that defines the structure and behavior of objects. It serves as a blueprint for creating multiple instances (objects) of that class. Each instance created from the class is independent and unique, with its own set of attributes and state.
+
+In other words, a class defines the common properties and methods that all its instances share, but each instance can have its own specific values for the attributes. Each instance is a separate entity, and changes made to one instance do not affect other instances.
+
+For example, consider a class "Car" that defines properties like "color," "model," and "year." When you create individual instances of the Car class, each instance represents a specific car with its own color, model, and year. You can create as many instances of the Car class as needed, and each instance will be distinct and independent.
+class Car:
+    def __init__(self, color, model, year):
+        self.color = color
+        self.model = model
+        self.year = year
+
+# Creating instances of the Car class
+car1 = Car("Red", "Sedan", 2022)
+car2 = Car("Blue", "SUV", 2021)
+
+Here, car1 and car2 are instances of the Car class, representing two different cars. Each instance holds its own unique set of attributes, but they share the common behavior defined by the Car class.
+
+
+
+Q2. What kind of data is held only in an instance?
+
+Data that is held only in an instance is called instance data. Instance data refers to the unique attributes or properties of an object that are specific to that particular instance of a class. Each instance created from a class can have its own set of instance data, and changes made to the instance data of one object do not affect other instances.
+
+In object-oriented programming, instance data is defined within the class constructor method (__init__) using the self keyword. Each instance can have different values for these attributes, making them specific to that instance.
+
+
+
+Q3. What kind of knowledge is stored in a class?
+
+In object-oriented programming, a class is a blueprint or template that defines the structure and behavior of objects. It contains the knowledge or specifications for creating objects of that class. The knowledge stored in a class includes:
+
+Attributes or Properties: These are the data members or variables that define the characteristics or state of the objects. They represent the instance data that each object of the class can have. Attributes define the properties of the objects and can have different values for each instance of the class.
+
+Methods: These are the functions defined within the class that define the behavior of the objects. Methods perform specific actions or operations related to the class and its objects. They can access and manipulate the attributes of the class and work with the instance data.
+
+Class Variables: These are variables that are shared among all instances of the class. They represent data that is common to all objects of the class and have the same value for all instances.
+
+Class Methods: These are methods that are bound to the class rather than to instances. They can access and modify class variables but do not have access to instance-specific data.
+
+
+Q4. What exactly is a method, and how is it different from a regular function?
+
+
+In object-oriented programming, a method is a function that is defined within a class and is associated with objects of that class. It defines the behavior or actions that objects of the class can perform. Methods are used to operate on the data (attributes) of the class and can modify or manipulate that data.
+
+The key differences between a method and a regular function are as follows:
+
+Method Binding: Methods are bound to the class and its instances (objects). When you call a method on an object, the object itself is implicitly passed as the first argument (often named "self" in Python) to the method. This allows the method to access and operate on the specific data (attributes) of that particular instance. In contrast, regular functions do not have this implicit binding to any specific object.
+
+Access to Attributes: Since methods are bound to the class and its instances, they have access to the instance variables (attributes) of the class. Methods can read or modify the instance data, whereas regular functions cannot access any instance-specific data.
+
+Purpose and Usage: Methods are primarily used to define the behavior of objects and perform actions related to the class. They are used to interact with the state of the objects and implement the functionalities of the class. Regular functions, on the other hand, are standalone functions that can be used for various purposes and are not directly tied to any specific class or object.
+
+Calling Syntax: To call a method on an object, you use the dot notation, where you specify the object followed by the method name, like object.method(). Regular functions are called by simply using their name, like function().
+
+
+
+Q5. Is inheritance supported in Python, and if so, what is the syntax?
+
+Yes, inheritance is supported in Python. Inheritance allows a class to inherit attributes and methods from another class, referred to as the base class or superclass. The class that inherits from the base class is called the derived class or subclass.
+
+The syntax for defining inheritance in Python is as follows:
+
+class BaseClass:
+    # Base class attributes and methods
+
+class DerivedClass(BaseClass):
+    # Derived class attributes and methods
+In the above syntax, DerivedClass is inheriting from BaseClass by specifying BaseClass as the argument inside the parentheses after the name of the DerivedClass. The DerivedClass can now access and use the attributes and methods defined in the BaseClass.
+
+
+
+Q6. How much encapsulation (making instance or class variables private) does Python support?
+
+In Python, encapsulation is supported to some extent through the use of name mangling, but it is not as strict as in some other programming languages like Java. Python uses a convention to make instance variables private by adding double underscores (__) as a prefix to the variable name. This is known as name mangling.
+
+For example, if you have a class with an instance variable __private_var, Python internally renames it to _classname__private_var, where classname is the name of the class.
+
+
+
+Q7. How do you distinguish between a class variable and an instance variable?
+
+In Python, class variables and instance variables are both types of variables that belong to a class, but they have distinct differences in their scope and usage:
+
+Class Variable:
+A class variable is a variable that is shared among all instances (objects) of a class.
+It is defined inside the class but outside any instance method or constructor.
+Class variables are declared using the class name and can be accessed using either the class name or any instance of the class.
+When you change the value of a class variable, it affects all instances of the class.
+Class variables are usually used to store data that is common to all instances of the class.
+
+
+
+Q8. When, if ever, can self be included in a class&#39;s method definitions?
+
+
+In Python, self is used as the first parameter in a class's method definitions to represent the instance of the class itself. It is a convention in Python, but not a strict requirement. The name self is used by convention, but you can choose any other valid variable name to represent the instance.
+
+The use of self in method definitions is necessary when you want to access or modify instance-specific attributes and methods within the class. By including self as the first parameter in the method definition, Python knows that the method is bound to instances of the class, and it automatically passes the instance as the first argument when the method is called.
+
+For example:
+
+class MyClass:
+    def __init__(self, value):
+        self.value = value
+
+    def print_value(self):
+        print(self.value)
+
+obj = MyClass(42)
+obj.print_value()  # Output: 42
+
+
+
+Q9. What is the difference between the _ _add_ _ and the _ _radd_ _ methods?
+
+The __add__ and __radd__ methods in Python are used for operator overloading of the addition (+) operator in custom classes. They define how instances of the class behave when the addition operator is used with them.
+
+__add__(self, other): This method is called when the + operator is used with an instance of the class on the left-hand side and another object on the right-hand side. It defines the behavior of the addition operation from the left-hand side object's perspective.
+
+__radd__(self, other): This method is called when the + operator is used with an instance of the class on the right-hand side and another object on the left-hand side. It defines the behavior of the addition operation from the right-hand side object's perspective.
+
+The main difference between the two methods is the order of the operands in the addition operation. The __add__ method is used when the class instance is on the left-hand side, and the __radd__ method is used when the class instance is on the right-hand side.
+
+
+
+Q10. When is it necessary to use a reflection method? When do you not need it, even though you
+support the operation in question?
+
+Reflection, in the context of object-oriented programming, refers to the ability of a program to examine and modify its own structure and behavior at runtime. In Python, one of the primary reflection methods is using the built-in getattr() function to access attributes of an object by name.
+
+The getattr() function is commonly used when you want to retrieve an attribute from an object dynamically, based on a string containing the attribute name. For example, if you have an object and you want to get the value of an attribute whose name is stored in a variable, you can use getattr().
+
+
+
+Q11. What is the _ _iadd_ _ method called?
+
+The __iadd__ method is called the "in-place addition" method. It is used for the += operator when applied to an object. The __iadd__ method allows you to define custom behavior for in-place addition operations on instances of your class.
+
+When the += operator is used on an object, Python first tries to call the __iadd__ method of the object. If the object supports in-place addition and has implemented the __iadd__ method, the in-place addition operation will be performed. If the __iadd__ method is not implemented, Python will fall back to using the regular addition method (__add__) followed by reassignment.
+
+
+
+Q12. Is the _ _init_ _ method inherited by subclasses? What do you do if you need to customize its
+behavior within a subclass?
+
+Yes, the __init__ method is inherited by subclasses in Python. When a subclass is created, it will inherit all the methods, including the __init__ method, from its parent class (also known as the base class).
+
+If you need to customize the behavior of the __init__ method within a subclass, you can override it by defining a new __init__ method in the subclass. This process is known as method overriding.
+
+
